@@ -1,0 +1,28 @@
+package com.sap.tcl.avalon.anuta.inbound.dtos;
+
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonPropertyOrder({ "match-value" })
+public class ClassMatchCondition implements Serializable {
+
+    private static final long serialVersionUID = -2081889411067110952L;
+    @JsonProperty("match-value")
+    private String matchValue;
+
+    @JsonProperty("match-value")
+    public String getMatchValue() {
+        return matchValue;
+    }
+
+    @JsonProperty("match-value")
+    public void setMatchValue(String matchValue) {
+        this.matchValue = matchValue;
+    }
+}

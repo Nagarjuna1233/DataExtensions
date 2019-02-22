@@ -1,0 +1,607 @@
+<extension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.hybris.com/schema/"
+	xsi:schemaLocation="http://www.hybris.com/schema/ http://www.hybris.com/schema/datahub-metadata-schema-1.2.0.xsd"
+	name="anuta-target">
+	
+	
+    <dependencies>
+		<dependency>
+			<extension>anuta-canonical</extension>
+		</dependency>
+	</dependencies>	
+	
+	
+	<targetSystems>
+		<targetSystem>
+			<name>HybrisCore</name>
+			<type>HybrisCore</type>
+			<exportURL>${datahub.extension.exportURL}</exportURL>
+			<userName>${datahub.extension.userName}</userName>
+			<password>${datahub.extension.password}</password>
+			<exportCodes></exportCodes>
+			<targetItems>
+			
+			  <item>
+					<type>AppProtocol</type>
+					<exportCode>AppProtocol</exportCode>
+					<description>App Protocol</description>
+					<canonicalItemSource>CanonicalProtocol
+					</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						<attribute>
+							<name>protocol</name>
+							<transformationExpression>protocol</transformationExpression>
+							<exportCode>code[unique=true]</exportCode>
+						</attribute>
+					</attributes>
+                </item>	
+				
+				 <item>
+					<type>AppCondition</type>
+					<exportCode>AppCondition</exportCode>
+					<description>App Condition</description>
+					<canonicalItemSource>CanonicalAppCondition
+					</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						<attribute>
+							<name>appCondition</name>
+							<transformationExpression>appCondition</transformationExpression>
+							<exportCode>code[unique=true]</exportCode>
+						</attribute>
+					</attributes>
+                </item>	
+			
+			
+			
+          <!--   <item>
+					<type>LegalEntity</type>
+					<exportCode>B2BUnit</exportCode>
+					<description>Legal Entity</description>
+					<canonicalItemSource>CanonicalPrimeDevice</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						<attribute>
+							<name>uid</name>
+							<transformationExpression>organization</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+						</attribute> 
+
+                        <attribute>
+							<name>cuid</name>
+							<transformationExpression>organization</transformationExpression>
+							<exportCode>cuid</exportCode>
+						</attribute>
+                        <attribute>
+							<name>entityType</name>
+							<transformationExpression>'LEGALENTITY'</transformationExpression>
+							<exportCode>entityType(code)</exportCode>
+						</attribute>
+                        <attribute>
+							<name>locName</name>
+							<transformationExpression>organization</transformationExpression>
+							<exportCode>locName[lang=en]</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>orgNameVersa</name>
+							<transformationExpression>''</transformationExpression>
+							<exportCode>orgNameVersa</exportCode>
+						</attribute>
+					</attributes>
+			</item>-->
+			
+			
+			<item>
+					<type>ManagedCpeService</type>
+					<exportCode>ManagedCpeService</exportCode>
+					<description>Managed Cpe Service</description>
+					<canonicalItemSource>CanonicalManagedCpeServices</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+					
+					   <attribute>
+							<name>uniqueId</name>
+							<transformationExpression>uniqueId</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+						</attribute>
+					   <attribute>
+							<name>siteName</name>
+							<transformationExpression>siteName</transformationExpression>
+							<exportCode>siteName</exportCode>
+						</attribute>
+						<attribute>
+							<name>siteType</name>
+							<transformationExpression>siteType</transformationExpression>
+							<exportCode>siteType(PrimeSiteType.code)</exportCode>
+						</attribute>
+						<attribute>
+							<name>zeroTouchProv</name>
+							<transformationExpression>zeroTouchProve</transformationExpression>
+							<exportCode>zeroTouchProv</exportCode>
+						</attribute>
+						<attribute>
+							<name>primaryDevice</name>
+							<transformationExpression>primaryDevice</transformationExpression>
+							<exportCode>primaryDevice</exportCode>
+						</attribute>
+						<attribute>
+							<name>secondaryDevice</name>
+							<transformationExpression>secondaryDevice</transformationExpression>
+							<exportCode>secondaryDevice</exportCode>
+						</attribute>
+						<attribute>
+							<name>legalEntity</name>
+							<transformationExpression>legalEntity</transformationExpression>
+							<exportCode>legalEntity(B2BUnit.uid)</exportCode>
+						</attribute>
+						<attribute>
+							<name>dirId</name>
+							<transformationExpression>dirId</transformationExpression>
+							<exportCode>sdwanSystem(SdwanSystem.systemId)</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+					</attributes>	
+				</item>	
+
+			<item>
+					<type>PrimeDevice</type>
+					<exportCode>PrimeDevice</exportCode>
+					<description>Prime Device</description>
+					<canonicalItemSource>CanonicalPrimeDevice</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						<attribute>
+							<name>uniqueId</name>
+							<transformationExpression>uniqueId</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+						</attribute> 
+						
+						<attribute>
+							<name>dirId</name>
+							<transformationExpression>dirId</transformationExpression>
+							<exportCode>sdwanSystem(SdwanSystem.systemId)</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>cuid</name>
+							<transformationExpression>cuid</transformationExpression>
+							<exportCode>name</exportCode>
+						</attribute> 
+						<attribute>
+							<name>osVersion</name>
+							<transformationExpression>osVersion</transformationExpression>
+							<exportCode>osVersion</exportCode>
+						</attribute> 
+                        <attribute>
+							<name>siteType</name>
+							<transformationExpression>determineSiteType(cuid,'siteType',poolName)</transformationExpression>
+							<exportCode>siteType(PrimeSiteType.code)</exportCode>
+						</attribute>
+						<attribute>
+							<name>siteService</name>
+							<transformationExpression>''.equalsIgnoreCase(determineSiteType(cuid,'siteType',poolName)) ? determineSiteType(cuid,'siteType',poolName) : determineSiteType(cuid,'siteType',poolName).concat('-SERVICE')</transformationExpression>
+							<exportCode>siteService</exportCode>
+						</attribute>
+						<attribute>
+							<name>interfaceList</name>
+							<transformationExpression>determineInterFaceList(interfaces)</transformationExpression>
+							<collection>true</collection>
+							<exportCode>interfaceList(InterfaceList)</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>status</name>
+							<transformationExpression>status</transformationExpression>
+							<exportCode>status</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>serviceProvisioningStatus</name>
+							<transformationExpression>serviceProvisioningStatus</transformationExpression>
+							<exportCode>serviceProvisioningStatus</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>deviceType</name>
+							<transformationExpression>deviceType</transformationExpression>
+							<exportCode>deviceType</exportCode>
+						</attribute>
+						<attribute>
+							<name>organization</name>
+							<transformationExpression>organization</transformationExpression>
+							<exportCode>legalEntity(B2BUnit.uid)</exportCode>
+						</attribute>
+						<attribute>
+							<name>organization</name>
+							<transformationExpression>organization</transformationExpression>
+							<exportCode>organization</exportCode>
+						</attribute>
+						<!--<attribute>
+							<name>DirectorId</name>
+							<transformationExpression>anutaDirectorId</transformationExpression>
+							<transformationExpression>anutaDirectorId</transformationExpression>
+							<exportCode></exportCode>
+						</attribute>-->
+						<attribute>
+							<name>managedCpeService</name>
+							<transformationExpression>''.equalsIgnoreCase(determineSiteType(cuid,'uniqueId',poolName)) ? '' :  determineSiteType(cuid,'uniqueId',poolName)+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>managedCpeService(ManagedCpeService.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>siteName</name>
+							<transformationExpression>determineSiteType(cuid,'siteName',poolName)</transformationExpression>
+							<exportCode>siteName</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>percentageOfCompletion</name>
+							<transformationExpression>''</transformationExpression>
+							<exportCode>percentageOfCompletion</exportCode>
+						</attribute>
+						
+						
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+					</attributes>	
+                        						
+                </item>
+				
+				 <item>
+					<type>PrimeAppQosPolicy</type>
+					<exportCode>PrimeAppQosPolicy</exportCode>
+					<description>PrimeAppQosPolicy</description>
+					<canonicalItemSource>CanonicalQosPolicy</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						<attribute>
+							<name>name</name>
+							<transformationExpression>policyName+'_'+dirId</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>policyName</name>
+							<transformationExpression>policyName</transformationExpression>
+							<exportCode>name</exportCode>
+						</attribute>
+						<attribute>
+							<name>description</name>
+							<transformationExpression>''</transformationExpression>
+							<exportCode>description</exportCode>
+						</attribute>
+						<attribute>
+							<name>matchType</name>
+							<transformationExpression>''</transformationExpression>
+							<exportCode>matchType</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>dirId</name>
+							<transformationExpression>dirId</transformationExpression>
+							<exportCode>sdwanSystem(SdwanSystem.systemId)</exportCode>
+						</attribute>
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+					</attributes>
+                </item>	
+				
+				 <item>
+					<type>DeviceRoute</type>
+					<exportCode>DeviceRoute</exportCode>
+					<description>Device Route</description>
+					<canonicalItemSource>CanonicalDeviceRoute</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						 <attribute>
+							<name>uniqueId</name>
+							<transformationExpression>uniqueId</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+						</attribute>
+						
+						 <attribute>
+							<name>id</name>
+							<transformationExpression>id</transformationExpression>
+							<exportCode>routeId</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>destIpAddress</name>
+							<transformationExpression>destIpAddress</transformationExpression>
+							<exportCode>destIpAddress</exportCode>
+						</attribute> 
+                        <attribute>
+							<name>destMask</name>
+							<transformationExpression>destMask</transformationExpression>
+							<exportCode>destMask</exportCode>
+						</attribute> 
+                        <attribute>
+							<name>optionName</name>
+							<transformationExpression>optionName</transformationExpression>
+							<exportCode>optionName</exportCode>
+						</attribute> 
+                        <attribute>
+							<name>nextHopIp</name>
+							<transformationExpression>nextHopIp</transformationExpression>
+							<exportCode>nextHopIp</exportCode>
+						</attribute> 						
+			           <attribute>
+							<name>interface</name>
+							<transformationExpression>interface</transformationExpression>
+							<exportCode>interface</exportCode>
+						</attribute>
+						<attribute>
+							<name>tags</name>
+							<transformationExpression>tags</transformationExpression>
+							<exportCode>tags</exportCode>
+						</attribute>
+					<attribute>
+							<name>metric</name>
+							<transformationExpression>metric</transformationExpression>
+							<exportCode>metric</exportCode>
+						</attribute>
+						<attribute>
+							<name>cuid</name>
+							<transformationExpression>deviceName+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>primeDevice(PrimeDevice.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+					</attributes>
+				</item>	
+              
+
+			  <item>
+					<type>PrimeApplication</type>
+					<exportCode>PrimeApplication</exportCode>
+					<description>Prime Application</description>
+					<canonicalItemSource>CanonicalPrimeApplication</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						 <attribute>
+							<name>uniqueId</name>
+							<transformationExpression>uniqueId</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>dirId</name>
+							<transformationExpression>dirId</transformationExpression>
+							<exportCode>sdwanSystem(SdwanSystem.systemId)</exportCode>
+						</attribute>
+						
+						
+						<attribute>
+							<name>name</name>
+							<transformationExpression>applicationName</transformationExpression>
+							<exportCode>name</exportCode>
+						</attribute>
+						<attribute>
+							<name>description</name>
+							<transformationExpression>description</transformationExpression>
+							<exportCode>description</exportCode>
+						</attribute>
+						<attribute>
+							<name>appType</name>
+							<transformationExpression>appType</transformationExpression>
+							<exportCode>appType(DefinitionType.code)</exportCode>
+						</attribute>
+						<attribute>
+							<name>legalEntity</name>
+							<transformationExpression>organization</transformationExpression>
+							<exportCode>legalEntity(B2BUnit.uid)</exportCode>
+						</attribute>
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+					</attributes>
+                </item>		
+
+               <item>
+					<type>PrimeDeviceQosPolicy</type>
+					<exportCode>PrimeDeviceQosPolicy</exportCode>
+					<description>Prime Device Qos Policy</description>
+					<canonicalItemSource>CanonicalPrimeAppQosPolicy</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+					
+					   <attribute>
+							<name>uniqueId</name>
+							<transformationExpression>uniqueId</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+						</attribute>
+					
+						<attribute>
+							<name>qosPolicyName</name>
+							<transformationExpression>policyName+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>qosPolicy(PrimeAppQosPolicy.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<attribute>
+							<name>application</name>
+							<transformationExpression>applicationName+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>application(PrimeApplication.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<attribute>
+							<name>siteName</name>
+							<transformationExpression>determineSiteType(deviceName,'siteName',poolName)</transformationExpression>
+							<exportCode>siteName</exportCode>
+						</attribute>
+						<attribute>
+							<name>deviceId</name>
+							<transformationExpression>deviceId</transformationExpression>
+							<exportCode>deviceId</exportCode>
+						</attribute>
+						<attribute>
+							<name>appType</name>
+							<transformationExpression>determinieAppTypeForDeviceQOSPolicy(applicationName,poolName)</transformationExpression>
+							<!--<transformationExpression>resolve('CanonicalPrimeApplication',poolName,'integrationKey='+applicationName).appType</transformationExpression>-->
+							<exportCode>appType(DefinitionType.code)</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>primeDevice</name>
+							<transformationExpression>deviceId+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>primeDevice(PrimeDevice.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						
+						<!--<attribute>
+							<name>primeAppQosPolicy</name>
+							<transformationExpression>determinePrimeAppPolicy(applicationName,'')</transformationExpression>
+							<exportCode>primeAppQosPolicy(PrimeAppQosPolicy.name)</exportCode>
+						</attribute>-->
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+					</attributes>
+                </item>						
+
+
+                <item>
+					<type>PrimeAppRule</type>
+					<exportCode>PrimeAppRule</exportCode>
+					<description>Prime AppRule</description>
+					<canonicalItemSource>CanonicalPrimeAppRule</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+					
+					    <attribute>
+							<name>uniqueId</name>
+							<transformationExpression>uniqueId</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>ruleName</name>
+							<transformationExpression>appName</transformationExpression>
+							<exportCode>ruleName</exportCode>
+						</attribute>
+						<attribute>
+							<name>sourceObject</name>
+							<transformationExpression>sourceObject</transformationExpression>
+							<exportCode>sourceObject</exportCode>
+						</attribute>
+						<attribute>
+							<name>sourceCondition</name>
+							<transformationExpression>sourceCondition</transformationExpression>
+							<exportCode>sourceCondition(AppCondition.code)</exportCode>
+						</attribute>
+						<attribute>
+							<name>destinationCondition</name>
+							<transformationExpression>destinationCondition</transformationExpression>
+							<exportCode>destinationCondition(AppCondition.code)</exportCode>
+						</attribute>
+						<attribute>
+							<name>destinationObject</name>
+							<transformationExpression>destinationObject</transformationExpression>
+							<exportCode>destinationObject</exportCode>
+						</attribute>
+						<attribute>
+							<name>portNumber</name>
+							<transformationExpression>portNumber</transformationExpression>
+							<exportCode>portNumber</exportCode>
+						</attribute>
+						<attribute>
+							<name>protocol</name>
+							<transformationExpression>protocol</transformationExpression>
+							<exportCode>protocol(AppProtocol.code)</exportCode>
+						</attribute>
+						<attribute>
+							<name>primeApplication</name>
+							<transformationExpression>appName+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>primeApplication(PrimeApplication.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+	                </attributes>
+				</item>	
+
+<!--               <item>
+					<type>SdwanSystem</type>
+					<exportCode>SdwanSystem</exportCode>
+					<description>Sdwan System</description>
+					<canonicalItemSource>CanonicalSdwanSystem
+					</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						<attribute>
+							<name>id</name>
+							<transformationExpression>id</transformationExpression>
+							<exportCode>systemId</exportCode>
+							
+						</attribute>
+						<attribute>
+							<name>endPoint</name>
+							<transformationExpression>baseUrl</transformationExpression>
+							<exportCode>endPoint</exportCode>
+							
+						</attribute>
+						<attribute>
+							<name>username</name>
+							<transformationExpression>userName</transformationExpression>
+							<exportCode>username</exportCode>
+							
+						</attribute>
+						<attribute>
+							<name>password</name>
+							<transformationExpression>password</transformationExpression>
+							<exportCode>password</exportCode>
+							
+						</attribute>
+						<attribute>
+							<name>type</name>
+							<transformationExpression>'ANUTA'</transformationExpression>
+							<exportCode>type(SdwanSystemType.code)</exportCode>
+						</attribute>
+						<attribute>
+							<name>legalEntity</name>
+							<transformationExpression>organization</transformationExpression>
+							<exportCode>LegalEntities(B2BUnit.uid)[unique=true]</exportCode>
+						</attribute>
+						<attribute>
+							<name>pollTime</name>
+							<transformationExpression>resolve('CanonicalDirectoryPollTime'[, 'pool_name']).pollStartTime</transformationExpression>
+							<exportCode>datahubTimeStamp</exportCode>
+						</attribute>
+					</attributes>
+                </item>		-->
+
+              </targetItems>
+		</targetSystem>
+	</targetSystems>		
+</extension>	

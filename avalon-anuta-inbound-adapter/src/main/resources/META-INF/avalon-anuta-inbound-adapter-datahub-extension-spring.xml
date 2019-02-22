@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ~ [y] hybris Platform ~ ~ Copyright (c) 2000-2015 hybris AG ~ All rights 
+	reserved. ~ ~ This software is the confidential and proprietary information 
+	of hybris ~ ("Confidential Information"). You shall not disclose such Confidential 
+	~ Information and shall use it only in accordance with the terms of the ~ 
+	license agreement you entered into with hybris. -->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:int="http://www.springframework.org/schema/integration" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:int-xml="http://www.springframework.org/schema/integration/xml"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd 
+            http://www.springframework.org/schema/task
+            http://www.springframework.org/schema/task/spring-task.xsd
+            http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+            http://www.springframework.org/schema/integration/xml http://www.springframework.org/schema/integration/xml/spring-integration-xml.xsd 
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    
+	<bean id="anutaApidir1" class="com.sap.tcl.avalon.anuta.inbound.services.AnutaApi">
+		<property name="userId" value="${avalon.anuta.base.userid}" />
+		<property name="password" value="${avalon.anuta.base.password}" />
+		<property name="baseUrl" value="${avalon.anuta.base.url1}" />
+	</bean>
+	
+	<bean id="anutaApidir2" class="com.sap.tcl.avalon.anuta.inbound.services.AnutaApi">
+		<property name="userId" value="${avalon.anuta.base.userid}" />
+		<property name="password" value="${avalon.anuta.base.password}" />
+		<property name="baseUrl" value="${avalon.anuta.base.url2}" />
+	</bean>
+	
+	     <bean id="anutaCreateFeedPoolService" class="com.sap.tcl.avalon.anuta.inbound.services.CreateFeedPoolService">
+		<property name="feedService" ref="dataHubFeedService" />
+	</bean>
+	
+
+   <bean id="anutaApiService" class="com.sap.tcl.avalon.anuta.inbound.services.AnutaApiService"/>
+   
+	<bean id="anutaPullServiceWorkerDir1"
+		class="com.sap.tcl.avalon.anuta.inbound.services.AnutaPullServiceWorker">
+		<property name="anutaApiService" ref="anutaApiService" />
+		<property name="anutaApi" ref="anutaApidir1" />
+		<property name="rawFragmentMessageInputChannel" ref="rawFragmentMessageInputChannel" />
+		<property name="allDevicesUrl" value="${avalon.anuta.all.devices.url}"/>
+		<property name="primeAppsUrl" value="${avalon.anuta.apps.url}"/>
+		<property name="allSitesUrl" value="${avalon.anuta.all.sites.url}"/>
+		<property name="customAppsUrl" value="${avalon.anuta.custom.apps.url}"/>
+		<property name="deviceClassMapUrl" value="${avalon.anuta.device.cls.map.url}"/>
+		<property name="userName" value="${avalon.anuta.base.userid}" />
+		<property name="password" value="${avalon.anuta.base.password}" />
+		<property name="directorId" value="${avalon.anuta.anutaDirId1}" />
+		<property name="baseUrl" value="${avalon.anuta.base.url1}" />
+		<property name="createFeedPoolService" ref="anutaCreateFeedPoolService" />
+		<property name="eventPublicationService" ref="eventPublicationService" />
+	</bean>
+	
+	<bean id="anutaPullServiceWorkerDir2"
+		class="com.sap.tcl.avalon.anuta.inbound.services.AnutaPullServiceWorker">
+		<property name="anutaApiService" ref="anutaApiService" />
+		<property name="anutaApi" ref="anutaApidir2" />
+		<property name="rawFragmentMessageInputChannel" ref="rawFragmentMessageInputChannel" />
+		<property name="allDevicesUrl" value="${avalon.anuta.all.devices.url}"/>
+		<property name="primeAppsUrl" value="${avalon.anuta.apps.url}"/>
+		<property name="allSitesUrl" value="${avalon.anuta.all.sites.url}"/>
+		<property name="customAppsUrl" value="${avalon.anuta.custom.apps.url}"/>
+		<property name="deviceClassMapUrl" value="${avalon.anuta.device.cls.map.url}"/>
+		<property name="userName" value="${avalon.anuta.base.userid}" />
+		<property name="password" value="${avalon.anuta.base.password}" />
+		<property name="directorId" value="${avalon.anuta.anutaDirId2}" />
+		<property name="baseUrl" value="${avalon.anuta.base.url2}" />
+		<property name="createFeedPoolService" ref="anutaCreateFeedPoolService" />
+		<property name="eventPublicationService" ref="eventPublicationService" />
+	</bean>
+
+
+	<!-- Configure the scheduler -->
+	<task:scheduler id="anutaScheduler" pool-size="10" />
+	<!-- Configure parameters -->
+	<task:scheduled-tasks scheduler="anutaScheduler">
+		<task:scheduled ref="anutaPullServiceWorkerDir1" method="pull"
+			fixed-delay="${avalon.anuta.fixed.delay}" initial-delay="30000" />
+			
+			<!-- <task:scheduled ref="anutaPullServiceWorkerDir2" method="pull"
+			fixed-delay="5000000" initial-delay="30000" /> -->
+	</task:scheduled-tasks>
+
+    <bean id="primDeviceCpeServiceResolver" class="com.sap.tcl.avalon.anuta.inbound.resolvers.PrimDeviceCpeServiceResolver">
+		<property name="canonicalItemService" ref="canonicalItemService" />
+	</bean>
+	
+	<bean id="primePolicyApplicationResolver" class="com.sap.tcl.avalon.anuta.inbound.resolvers.PrimePolicyApplicationResolver">
+		<property name="canonicalItemService" ref="canonicalItemService" />
+	</bean>
+	<bean id="primeDeviceQosAppResolver" class="com.sap.tcl.avalon.anuta.inbound.resolvers.PrimeDeviceQosAppResolver">
+		<property name="canonicalItemService" ref="canonicalItemService" />
+	</bean>
+	
+		<bean id="primeDeviceInterfaceResolver" class="com.sap.tcl.avalon.anuta.inbound.resolvers.PrimeDeviceInterfaceResolver">
+	</bean>
+
+
+  <bean name="compositionEventListener" class="com.sap.tcl.avalon.anuta.inbound.listeners.DataHubCompositionCompletedListener"
+		  parent="abstractPoolActionInitiationEventListener">
+		<property name="eventPublicationService" ref="eventPublicationService" />
+		<property name="pools" value="${avalon.pools}" />
+	</bean>
+
+</beans>

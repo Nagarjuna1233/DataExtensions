@@ -1,0 +1,5 @@
+autoEnabled=true
+eclipse.preferences.version=1
+extraProperties=
+moduleKey=org.codehaus.sonar\:TCLAVALON\:avalon-versa-inbound-adapter
+serverId=192.168.1.135

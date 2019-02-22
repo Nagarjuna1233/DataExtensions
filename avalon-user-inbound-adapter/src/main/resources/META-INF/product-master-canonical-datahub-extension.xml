@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension xmlns="http://www.hybris.com/schema/" name="product-master-canonical">
+	<canonicalItems>
+		<item>
+			<type>CANONICAL_PRODUCT_MASTER</type>
+			<attributes>
+						
+			<attribute>
+					<name>CUID</name>
+					<model>
+						<localizable>false</localizable>
+						<collection>false</collection>
+						<type>String</type>
+						<primaryKey>true</primaryKey>
+					</model>
+				</attribute>
+			<attribute>
+					<name>SERVICE_TYPE</name>
+					<model>
+						<localizable>false</localizable>
+						<collection>false</collection>
+						<type>String</type>
+						<primaryKey>true</primaryKey>
+					</model>
+				</attribute>
+			
+			
+			</attributes>
+		</item>
+
+	</canonicalItems>
+</extension>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension xmlns="http://www.hybris.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.hybris.com/schema/ datahub-metadata-schema-1.0.0.xsd"
+	name="product-master-target">
+	<dependencies>
+		<dependency>
+			<extension>product-master-canonical</extension>
+		</dependency>
+	</dependencies>
+	<targetSystems>
+		<targetSystem>
+			<name>HybrisCore</name>
+			<type>HybrisCore</type>
+			<exportURL>${targetsystem.hybriscore.url}</exportURL>
+			<userName>${targetsystem.hybriscore.username}</userName>
+			<password>${targetsystem.hybriscore.password}</password>
+			<exportCodes />
+			<targetItems>
+				<item>
+					<type>Product2PrincipalRelation</type>
+					<exportCode>Product2PrincipalRelation</exportCode>
+					<description>Hybris Platform representation of
+						Product2PrincipalRelation
+					</description>
+					<updatable>true</updatable>
+					<canonicalItemSource>CANONICAL_PRODUCT_MASTER
+					</canonicalItemSource>
+					<status>ACTIVE</status>
+					<attributes>
+						<attribute>
+							<name>source</name>
+							<transformationExpression>SERVICE_TYPE+':tclavalonProductCatalog:Online'</transformationExpression>
+							<exportCode>source(code,catalogVersion(Catalog(id),version))[unique=true]</exportCode>
+						</attribute>
+						<attribute>
+							<name>target</name>
+							<transformationExpression>CUID</transformationExpression>
+							<exportCode>target(uid)[unique=true]</exportCode>
+						</attribute>						
+					</attributes>
+				</item>
+			</targetItems>
+		</targetSystem>
+	</targetSystems>
+</extension>

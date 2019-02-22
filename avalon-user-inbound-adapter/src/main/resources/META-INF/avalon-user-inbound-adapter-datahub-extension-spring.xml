@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ~ [y] hybris Platform ~ ~ Copyright (c) 2000-2015 hybris AG ~ All rights 
+	reserved. ~ ~ This software is the confidential and proprietary information 
+	of hybris ~ ("Confidential Information"). You shall not disclose such Confidential 
+	~ Information and shall use it only in accordance with the terms of the ~ 
+	license agreement you entered into with hybris. -->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:int="http://www.springframework.org/schema/integration" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:int-xml="http://www.springframework.org/schema/integration/xml"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd 
+            http://www.springframework.org/schema/task
+            http://www.springframework.org/schema/task/spring-task.xsd
+            http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+            http://www.springframework.org/schema/integration/xml http://www.springframework.org/schema/integration/xml/spring-integration-xml.xsd 
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="userApi" class="com.sap.tcl.avalon.user.inbound.services.UserApi">
+		<property name="userId" value="${avalon.user.base.userid}" />
+		<property name="password" value="${avalon.user.base.password}" />
+		<property name="baseUrl" value="${avalon.user.base.url}" />
+	</bean>
+
+
+	<bean id="userPullServiceWorker"
+		class="com.sap.tcl.avalon.user.inbound.services.UserPullServiceWorker">
+		<property name="customerMasterUrl" value="${avalon.user.leagal.entity.url}" />
+		<property name="isPartner" value="${avalon.user.ispartner}" />
+		<property name="isCustomer" value="${avalon.user.iscustomer}" />
+		<property name="isPartnerValue" value="${avalon.user.ispartnervalue}" />
+		<property name="isCustomerValue" value="${avalon.user.iscustomervalue}" />
+		<property name="owner" value="${avalon.user.owner}"></property>
+		<property name="idType" value="${avalon.user.idType}"></property>
+		<property name="idTypeValue" value="${avalon.user.idTypeValue}"></property>
+		<property name="accountId" value="${avalon.user.accountId}"></property>
+		<property name="accountOwner" value="${avalon.user.accountOwner}"></property>
+		<property name="leOwner" value="${avalon.user.leOwner}"></property>
+		<property name="cUID" value="${avalon.user.cUID}"></property>
+		<property name="countryName" value="${avalon.user.countryName}" />
+
+
+		<property name="rawFragmentMessageInputChannel" ref="rawFragmentMessageInputChannel" />
+	</bean>
+
+	<bean id="productPullServiceWorker"
+		class="com.sap.tcl.avalon.user.inbound.services.ProductPullServiceWorker">
+
+		<property name="productMasterUrl" value="${avalon.user.product.entity.url}" />
+		<property name="rawFragmentMessageInputChannel" ref="rawFragmentMessageInputChannel" />
+		<property name="cuid" value="{avalon.user.cuidProduct}" />
+
+	</bean>
+	<bean id="mainPullServiceWorker"
+		class="com.sap.tcl.avalon.user.inbound.services.MainPullServiceWorker">
+		<property name="userPullServiceWorker" ref="userPullServiceWorker" />
+		<property name="eventServiceWorker" ref="eventServiceWorker" />
+
+	</bean>
+
+	<!-- Configure the scheduler -->
+	<task:scheduler id="userScheduler" pool-size="10" />
+	<!-- Configure parameters -->
+	<task:scheduled-tasks scheduler="userScheduler">
+		<task:scheduled ref="mainPullServiceWorker" method="userPull"
+			cron="${avalon.user.customer.master.pull.interval}" />
+	</task:scheduled-tasks>
+
+
+
+	<!-- Configure the scheduler -->
+	<!-- <task:scheduler id="productScheduler" pool-size="10" /> -->
+	<!-- Configure parameters -->
+	<!-- <task:scheduled-tasks scheduler="productScheduler"> <task:scheduled 
+		ref="productPullServiceWorker" method="pull" cron="${avalon.user.product.master.pull.interval}" 
+		/> </task:scheduled-tasks> -->
+
+
+	<bean id="userCompositionCompletedListener"
+		class="com.sap.tcl.avalon.user.inbound.listeners.UserCompositionCompletedListener">
+		<property name="eventPublicationService" ref="eventPublicationService"></property>
+		<property name="dataHubFeedService" ref="dataHubFeedService"></property>
+	</bean>
+
+	<bean id="userProductPullServiceWorker"
+		class="com.sap.tcl.avalon.user.inbound.services.UserProductPullServiceWorker">
+		<property name="userApi" ref="userApi" />
+		<property name="rootElement" value="${avalon.user.rootelement}" />
+		<property name="subRootElement" value="${avalon.user.subrootelement}" />
+		<property name="skippingElement" value="${avalon.user.skippingelement}" />
+	</bean>
+
+	<bean id="eventServiceWorker"
+		class="com.sap.tcl.avalon.user.inbound.services.EventServiceWorker">
+		<property name="eventPublicationService" ref="eventPublicationService"></property>
+		<property name="dataHubFeedService" ref="dataHubFeedService"></property>
+
+	</bean>
+	<bean id="mainProductPullServiceWorker"
+		class="com.sap.tcl.avalon.user.inbound.services.MainProductPullServiceWorker">
+		<property name="productPullServiceWorker" ref="productPullServiceWorker" />
+		<property name="eventServiceWorker" ref="eventServiceWorker" />
+	</bean>
+
+	<!-- Configure the scheduler -->
+	<task:scheduler id="productScheduler" pool-size="10" />
+	<!-- Configure parameters -->
+	<task:scheduled-tasks scheduler="productScheduler">
+		<task:scheduled ref="mainProductPullServiceWorker"
+			method="productPull" cron="${avalon.user.product.master.pull.interval}" />
+	</task:scheduled-tasks>
+
+</beans>

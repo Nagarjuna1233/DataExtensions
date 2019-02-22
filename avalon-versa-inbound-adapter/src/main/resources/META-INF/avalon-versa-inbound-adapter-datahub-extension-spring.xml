@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ~ [y] hybris Platform ~ ~ Copyright (c) 2000-2015 hybris AG ~ All rights 
+	reserved. ~ ~ This software is the confidential and proprietary information 
+	of hybris ~ ("Confidential Information"). You shall not disclose such Confidential 
+	~ Information and shall use it only in accordance with the terms of the ~ 
+	license agreement you entered into with hybris. -->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:int="http://www.springframework.org/schema/integration" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:int-xml="http://www.springframework.org/schema/integration/xml"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd 
+            http://www.springframework.org/schema/task
+            http://www.springframework.org/schema/task/spring-task.xsd
+            http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+            http://www.springframework.org/schema/integration/xml http://www.springframework.org/schema/integration/xml/spring-integration-xml.xsd 
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+            
+
+	<bean id="versaApiDir1" class="com.sap.tcl.avalon.versa.inbound.services.VersaApi">
+		<property name="userId" value="${avalon.versa.base.userid}" />
+		<property name="password" value="${avalon.versa.base.password}" />
+		<property name="baseUrl" value="${avalon.versa.base.url.dir1}" />
+	</bean>
+	
+	<bean id="versaApiDir2" class="com.sap.tcl.avalon.versa.inbound.services.VersaApi">
+		<property name="userId" value="${avalon.versa.base.userid}" />
+		<property name="password" value="${avalon.versa.base.password}" />
+		<property name="baseUrl" value="${avalon.versa.base.url.dir2}" />
+	</bean>
+    
+     <bean id="versaCreateFeedPoolService" class="com.sap.tcl.avalon.versa.inbound.services.CreateFeedPoolService">
+		<property name="feedService" ref="dataHubFeedService" />
+	</bean>
+
+	<bean id="versanmTemplatesDir1" 
+		class="com.sap.tcl.avalon.versa.inbound.services.VersaDataPullingService">
+		<property name="rawFragmentMessageInputChannel" ref="rawFragmentMessageInputChannel" />
+		<property name="versaApi" ref="versaApiDir1" />
+		
+		<property name="templateUrl" value="${avalon.versa.template.url}"/>
+		<property name="sdwanOrgUrl" value="${avalon.versa.sdwanorg.url}"/>
+		<property name="deviceGroupUrl" value="${avalon.versa.device.group.url}"/>
+		<property name="deviceGroupTemplatesUrl" value="${avalon.versa.device.group.template.url}"/>
+		<property name="deviceDetailsUrl" value="${avalon.versa.device.details.url}"/>
+		<property name="deviceStatusUrl" value="${avalon.versa.device.status.url}"/>
+		<property name="appsUrl" value="${avalon.versa.apps.url}"/>
+		<property name="urlsCategoriesPerTemplate" value="${avalon.versa.categoryPerTemplate.url}"/>
+		<property name="userDefinedAppsUrl" value="${avalon.versa.user.defined.apps.url}"/>
+		
+		<property name="preUrlsCategories" value="${avalon.versa.pre.urls.categories.url}"/>
+		<property name="forwardProfilesUrl" value="${avalon.versa.forward.profile.url}"/>
+		<property name="qosForwardProfilesUrl" value="${avalon.versa.qos.forward.profile.url}"/>
+		<property name="qosPolicyUrl" value="${avalon.versa.qos.policy.url}"/>
+		<property name="policyGroupUrl" value="${avalon.versa.policy.group.url}"/>
+		<property name="slrProfileUrl" value="${avalon.versa.slr.profile.url}"/>
+		
+		<property name="appsQosRulesUrl" value="${avalon.versa.apps.qos.rules}"/>
+		<property name="rulesPerPolicy" value="${avalon.versa.rules.per.policy}"/>
+		<property name="userDefinedAppsDetails" value="${avalon.versa.user.defined.apps.details.url}"/>
+	    <property name="createFeedPoolService" ref="versaCreateFeedPoolService" />
+	    <property name="directorId" value="${avalon.versa.directory1}" />
+	    <property name="userName" value="${avalon.versa.base.userid}" />
+		<property name="password" value="${avalon.versa.base.password}" />
+		<property name="baseUrl" value="${avalon.versa.base.url.dir1}" />
+		<property name="eventPublicationService" ref="eventPublicationService" />
+	    
+	</bean>
+
+
+   	<bean id="versanmTemplatesDir2" 
+		class="com.sap.tcl.avalon.versa.inbound.services.VersaDataPullingService">
+		<property name="rawFragmentMessageInputChannel" ref="rawFragmentMessageInputChannel" />
+		<property name="versaApi" ref="versaApiDir2" />
+		
+		<property name="templateUrl" value="${avalon.versa.template.url}"/>
+		<property name="sdwanOrgUrl" value="${avalon.versa.sdwanorg.url}"/>
+		<property name="deviceGroupUrl" value="${avalon.versa.device.group.url}"/>
+		<property name="deviceGroupTemplatesUrl" value="${avalon.versa.device.group.template.url}"/>
+		<property name="deviceDetailsUrl" value="${avalon.versa.device.details.url}"/>
+		<property name="deviceStatusUrl" value="${avalon.versa.device.status.url}"/>
+		<property name="appsUrl" value="${avalon.versa.apps.url}"/>
+		<property name="urlsCategoriesPerTemplate" value="${avalon.versa.categoryPerTemplate.url}"/>
+		<property name="userDefinedAppsUrl" value="${avalon.versa.user.defined.apps.url}"/>
+		
+		<property name="preUrlsCategories" value="${avalon.versa.pre.urls.categories.url}"/>
+		<property name="forwardProfilesUrl" value="${avalon.versa.forward.profile.url}"/>
+		<property name="qosForwardProfilesUrl" value="${avalon.versa.qos.forward.profile.url}"/>
+		<property name="qosPolicyUrl" value="${avalon.versa.qos.policy.url}"/>
+		<property name="policyGroupUrl" value="${avalon.versa.policy.group.url}"/>
+		<property name="slrProfileUrl" value="${avalon.versa.slr.profile.url}"/>
+		
+		<property name="appsQosRulesUrl" value="${avalon.versa.apps.qos.rules}"/>
+		<property name="rulesPerPolicy" value="${avalon.versa.rules.per.policy}"/>
+		<property name="userDefinedAppsDetails" value="${avalon.versa.user.defined.apps.details.url}"/>
+	    <property name="createFeedPoolService" ref="versaCreateFeedPoolService" />
+	    <property name="directorId" value="${avalon.versa.directory2}" />
+	    <property name="userName" value="${avalon.versa.base.userid}" />
+		<property name="password" value="${avalon.versa.base.password}" />
+		<property name="baseUrl" value="${avalon.versa.base.url.dir2}" />
+		<property name="eventPublicationService" ref="eventPublicationService" />
+	</bean>
+	
+	
+
+	
+
+	<!-- Configure the scheduler -->
+	<task:scheduler id="avaloneScheduler" pool-size="10" />
+	<!-- Configure parameters -->
+	<task:scheduled-tasks scheduler="avaloneScheduler">
+		<task:scheduled ref="versanmTemplatesDir1" method="pull"
+			fixed-delay="${avalon.versa1.fixed.delay}" initial-delay="${avalon.versa1.initial.delay}" />
+		<task:scheduled ref="versanmTemplatesDir2" method="pull"
+			fixed-delay="${avalon.versa2.fixed.delay}" initial-delay="${avalon.versa2.initial.delay}" />	
+	</task:scheduled-tasks>
+	
+	<bean id="deviceGroupTemplateResolver" class="com.sap.tcl.avalon.versa.inbound.resolvers.DeviceGroupTemplateResolver">
+		<property name="canonicalItemService" ref="canonicalItemService" />
+	</bean>
+	
+	<!-- <bean id="policyRuleForUrlCategoriesResolver" class="com.sap.tcl.avalon.versa.inbound.resolvers.PolicyRuleForUrlCategoriesResolver">
+		<property name="canonicalItemService" ref="canonicalItemService" />
+	</bean> -->
+
+	<bean id="selectDeviceTemplateResolver" class="com.sap.tcl.avalon.versa.inbound.resolvers.SelectDeviceTemplateResolver">
+		<property name="canonicalItemService" ref="canonicalItemService" />
+	</bean>
+	
+	<bean id="deviceTemplateResolver" class="com.sap.tcl.avalon.versa.inbound.resolvers.DeviceTemplateResolver">
+		<property name="canonicalItemService" ref="canonicalItemService" />
+	</bean>
+
+	<bean id="selectDeviceStatusResolver" class="com.sap.tcl.avalon.versa.inbound.resolvers.SelectDeviceStatusResolver">
+		<property name="canonicalItemService" ref="canonicalItemService" />
+	</bean>
+	
+	
+	<bean id="urlCategoryPolicyRuleResolver" class="com.sap.tcl.avalon.versa.inbound.resolvers.UrlCategoryPolicyRuleResolver">
+		<property name="canonicalItemService" ref="canonicalItemService" />
+	</bean>
+	
+	
+	<bean id="directorResolver" class="com.sap.tcl.avalon.versa.inbound.resolvers.DirectorResolver">
+		<property name="canonicalItemService" ref="canonicalItemService" />
+	</bean>
+	
+	<bean name="compositionEventListener" class="com.sap.tcl.avalon.versa.inbound.listeners.DataHubCompositionCompletedListener"
+		  parent="abstractPoolActionInitiationEventListener">
+		<property name="eventPublicationService" ref="eventPublicationService" />
+		<property name="pools" value="${avalon.pools}" />
+	</bean>
+	
+</beans>

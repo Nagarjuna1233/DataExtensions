@@ -1,0 +1,2345 @@
+<extension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.hybris.com/schema/"
+	xsi:schemaLocation="http://www.hybris.com/schema/ http://www.hybris.com/schema/datahub-metadata-schema-1.2.0.xsd"
+	name="versa-raw">
+	<dependencies>
+		<dependency>
+			<extension>versa-canonical</extension>
+		</dependency>
+	</dependencies>
+	<rawItems>
+		<item>
+			<type>RawVersaTemplates</type>
+			<description>Raw representation of a Versa Templates</description>
+			<attributes>
+				<attribute>
+					<name>versanms.templates_template_name</name>
+				</attribute>
+				<attribute>
+					<name>versanms.templates_template_templateType</name>
+				</attribute>
+				<attribute>
+					<name>versanms.templates_template_isPrimary</name>
+				</attribute>
+				<attribute>
+					<name>versanms.templates_template_organization</name>
+				</attribute>
+				<attribute>
+					<name>versanms.templates_template_versionNo</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+				<attribute>
+					<name>dirId</name>
+				</attribute>
+				<attribute>
+					<name>uid</name>
+				</attribute>
+			</attributes>
+		</item>
+
+		<item>
+			<type>RawUrlCategory</type>
+			<description>Raw representation of a Versa Templates</description>
+			<attributes>
+				<attribute>
+					<name>uid</name>
+				</attribute>
+				
+				<attribute>
+					<name>url-category_category-name</name>
+				</attribute>
+				<attribute>
+					<name>url-category_description</name>
+				</attribute>
+				<!--organization Take from input data tamplet -->
+				<attribute>
+					<name>organization</name>
+				</attribute>
+				<attribute>
+					<name>definitionType</name>
+				</attribute>
+                <attribute>
+					<name>template-name</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+			</attributes>
+		</item>
+
+		<item>
+			<type>RawVersaDeviceGroup</type>
+			<description>Raw representation of a Versa Device Group</description>
+			<attributes>
+				<attribute>
+					<name>uid</name>
+				</attribute>
+				
+				<attribute>
+					<name>device-group_name</name>
+				</attribute>
+				<attribute>
+					<name>device-group_serial-no</name>
+				</attribute>
+				<attribute>
+					<name>device-group_inventory-name</name>
+				</attribute>
+				<attribute>
+					<name>device-group_description</name>
+				</attribute>
+				<attribute>
+					<name>device-group_e-mail</name>
+				</attribute>
+                <attribute>
+					<name>device-group_organization</name>
+				</attribute>
+				<attribute>
+					<name>device-group_dir_id</name>
+				</attribute>
+			</attributes>
+		</item>
+
+
+		<item>
+			<type>RawDeviceGrpandTempMap</type>
+			<description>Raw representation of a Versa User Defined Application
+				Details
+			</description>
+			<attributes>
+				<attribute>
+					<name>devicegroup-template-mapping_template</name>
+				</attribute>
+				<attribute>
+					<name>devicegroup-template-mapping_device-group</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+			</attributes>
+		</item>
+
+
+		<item>
+			<type>RawVersaDeviceDetails</type>
+			<!--SDWANDEVICE -->
+			<description>Raw representation of a Versa Device Details
+			</description>
+			<attributes>
+				<attribute>
+					<name>asset_name</name>
+				</attribute>
+				<attribute>
+					<name>asset_organization</name>
+				</attribute>
+				<attribute>
+					<name>asset_serial-no</name>
+				</attribute>
+				<attribute>
+					<name>asset_status</name>
+				</attribute>
+				<attribute>
+					<name>asset_location</name>
+				</attribute>
+				<attribute>
+					<name>asset_latitude</name>
+				</attribute>
+				<attribute>
+					<name>asset_longitude</name>
+				</attribute>
+				<attribute>
+					<name>asset_altitude</name>
+				</attribute>
+				<attribute>
+					<name>asset_site-name</name>
+				</attribute>
+				<attribute>
+					<name>asset_site-id</name>
+				</attribute>
+				<attribute>
+					<name>asset_device-type</name>
+				</attribute>
+				<attribute>
+					<name>asset_dir_id</name>
+				</attribute>
+				 <attribute>
+					<name>uid</name>
+				</attribute>
+			</attributes>
+		</item>
+
+		<item>
+			<type>RawVersaOrganization</type>
+			<description>Raw representation of a Versa Oganization</description>
+			<attributes>
+				<attribute>
+					<name>organization_name</name>
+				</attribute>
+				<attribute>
+					<name>organization_uid</name>
+				</attribute>
+				<!--<attribute>
+					<name>organization_description</name>
+				</attribute>-->
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+            </attributes>
+		</item>
+
+		<item>
+			<type>RawVersaSDWANPolicyGroup</type>
+			<description>Raw representation of a Versa SDWAN Policy Group
+			</description>
+			<attributes>
+				<!--template-name take from input template object -->
+				
+				<attribute>
+					<name>uid</name>
+				</attribute>
+				
+				<attribute>
+					<name>template-name</name>
+				</attribute>
+				<attribute>
+					<name>sdwan-policy-group_description</name>
+				</attribute>
+				<attribute>
+					<name>sdwan-policy-group_name</name>
+				</attribute>
+				<attribute>
+					<name>template-name</name>
+				</attribute>
+				<attribute>
+					<name>organization</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+				<attribute>
+				<name>policyGroupType</name>
+				</attribute>
+			</attributes>
+		</item>
+
+		<item>
+			<type>RawVersaRulesPerPolicy</type>
+			<description>Raw representation of a Versa Rules per Policy
+			</description>
+			<attributes>
+				<!--template-name take from input template object -->
+				<attribute>
+					<name>uid</name>
+				</attribute>
+				
+				<attribute>
+					<name>template-name</name>
+				</attribute>
+				<!--policy-name take from input SDWANPolicyGroup object -->
+				<attribute>
+					<name>policy-name</name>
+				</attribute>
+				<attribute>
+					<name>rule_name</name>
+				</attribute>
+				<attribute>
+					<name>rule_description</name>
+				</attribute>
+				<attribute>
+					<name>rule_tag</name>
+				</attribute>
+				<attribute>
+					<name>rule_set_action</name>
+				</attribute>
+				<attribute>
+					<name>rule_set_forwarding-profile</name>
+				</attribute>
+				<attribute>
+					<name>rule_match_application_predefined-application-list</name>
+				</attribute>
+				<attribute>
+					<name>rule_match_application_user-defined</name>
+				</attribute>
+                <attribute>
+					<name>rule_match_url-category_user-defined</name>
+				</attribute>
+                <attribute>
+					<name>rule_match_url-category_predefined</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+				<attribute>
+				<name>policyGroupType</name>
+				</attribute>
+				<attribute>
+				  <name>template</name>
+				</attribute>
+				<attribute>
+				  <name>organization</name>
+				</attribute>
+			</attributes>
+		</item>
+
+		<item>
+			<type>RawVersaAppsQosForwardingProfile</type>
+			<description>Raw representation of a Versa Qos Forwarding Profiles
+			</description>
+			<attributes>
+			
+			    <attribute>
+					<name>uid</name>
+				</attribute>
+				
+				<attribute>
+					<name>qos-profile_name</name>
+				</attribute>
+				<!--template-name take from input template object -->
+				<attribute>
+					<name>template-name</name>
+				</attribute>
+				<attribute>
+					<name>qos-profile_description</name>
+				</attribute>
+				<attribute>
+					<name>qos-profile_peak-pps-rate</name>
+				</attribute>
+				<attribute>
+					<name>qos-profile_peak-kbps-rate</name>
+				</attribute>
+				<attribute>
+					<name>qos-profile_peak-burst-size</name>
+				</attribute>
+				<attribute>
+					<name>qos-profile_forwarding-class</name>
+				</attribute>
+				<attribute>
+					<name>qos-profile_loss-priority</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+			</attributes>
+		</item>
+
+
+        <item>
+			<type>RawVersaForwardingProfile</type>
+			<description>Raw representation of a Versa Forwarding Profiles
+			</description>
+			<attributes>
+				
+				<attribute>
+					<name>uid</name>
+				</attribute>
+				
+				<attribute>
+					<name>forwarding-profile_name</name>
+				</attribute>
+				<!--template-name take from input template object -->
+				<attribute>
+					<name>template-name</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_description</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_connection-selection-method</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_sla-violation-action</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_evaluate-continuously</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_encryption</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_symmetric-forwarding</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_sla-profile</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+			</attributes>
+		</item>
+		
+		<item>
+			<type>RawVersaCircuitPriority</type>
+			<description>Raw representation of a Raw Versa CircuitPriority
+			</description>
+			<attributes>
+				<attribute>
+					<name>forwarding-profile_name</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_circuit-priorities_priority_value</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_circuit-priorities_priority_description
+					</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_circuit-priorities_priority_circuit-names_local
+					</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_circuit-priorities_priority_circuit-names_remote
+					</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_circuit-priorities_priority_circuit-types_local</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_circuit-priorities_priority_circuit-types_remote</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_circuit-priorities_priority_circuit-media_local</name>
+				</attribute>
+				<attribute>
+					<name>forwarding-profile_circuit-priorities_priority_circuit-media_remote</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+			</attributes>
+		</item>
+		
+
+		<item>
+			<type>RawVersaSlaProfile</type>
+			<description>Raw representation of a Versa SLA Profiles</description>
+			<attributes>
+				<attribute>
+					<name>uid</name>
+				</attribute>
+				
+				<attribute>
+					<name>sla-profile_name</name>
+				</attribute>
+				<!--template-name Take from input template object -->
+				<attribute>
+					<name>template-name</name>
+				</attribute>
+				<attribute>
+					<name>sla-profile_description</name>
+				</attribute>
+				<attribute>
+					<name>sla-profile_latency</name>
+				</attribute>
+				<attribute>
+					<name>sla-profile_loss-percentage</name>
+				</attribute>
+				<attribute>
+					<name>sla-profile_delay-variation</name>
+				</attribute>
+				<attribute>
+					<name>sla-profile_circuit-transmit-utilization</name>
+				</attribute>
+				<attribute>
+					<name>sla-profile_circuit-receive-utilization</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+			</attributes>
+		</item>
+
+		<item>
+			<type>RawVersaUserDefinedAppDetails</type>
+			<description>Raw representation of a Versa User Defined Application
+				Details
+			</description>
+			<attributes>
+				
+				<attribute>
+					<name>uid</name>
+				</attribute>
+				
+				<attribute>
+					<name>app-match-rules_rule-name</name>
+				</attribute>
+				<attribute>
+					<name>app-match-rules_host-pattern</name>
+				</attribute>
+				<attribute>
+					<name>app-match-rules_source-prefix</name>
+				</attribute>
+				<attribute>
+					<name>app-match-rules_destination-prefix</name>
+				</attribute>
+				<attribute>
+					<name>app-match-rules_source-port_value</name>
+				</attribute>
+				<attribute>
+					<name>app-match-rules_destination-port_value</name>
+				</attribute>
+				<!--app-name Take from input RawVersaUserDefinedApps object -->
+				<attribute>
+					<name>app-name</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+				
+				<attribute>
+					<name>template-name</name>
+				</attribute>
+			</attributes>
+		</item>
+
+		<item>
+			<type>RawVersaUserDefinedApps</type>
+			<description>Raw representation of a Versa User Defined ApplicationDetails</description>
+			<attributes>
+			
+			    <attribute>
+					<name>uid</name>
+				</attribute>
+				<attribute>
+					<name>user-defined-application_app-name</name>
+				</attribute>
+				<attribute>
+					<name>user-defined-application_description</name>
+				</attribute>
+				<attribute>
+					<name>user-defined-application_family</name>
+				</attribute>
+				<attribute>
+					<name>user-defined-application_subfamily</name>
+				</attribute>
+				<attribute>
+					<name>user-defined-application_productivity</name>
+				</attribute>
+				<attribute>
+					<name>user-defined-application_risk</name>
+				</attribute>
+				<attribute>
+					<name>user-defined-application_tag</name>
+				</attribute>
+				<attribute>
+					<name>user-defined-application_precedence</name>
+				</attribute>
+				<attribute>
+					<name>user-defined-application_app-timeout</name>
+				</attribute>
+				<!--template-name Take from input template object -->
+				<attribute>
+					<name>template-name</name>
+				</attribute>
+				<attribute>
+					<name>organization</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+			</attributes>
+		</item>
+		
+		<item>
+			<type>RawApplication</type>
+			<description>Raw representation of a Versa User Defined ApplicationDetails</description>
+			<attributes>
+			
+			    <attribute>
+					<name>uid</name>
+				</attribute>
+				<attribute>
+					<name>application_name</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+			</attributes>
+		</item>
+
+		<item>
+			<type>RawAppQosRules</type>
+			<description>Raw representation of App Qos Policy
+			</description>
+			<attributes>
+			
+			    <attribute>
+					<name>uid</name>
+				</attribute>
+				<attribute>
+					<name>app-qos-policy_name</name>
+				</attribute>
+				<attribute>
+					<name>app-qos-policy_description</name>
+				</attribute>
+				<attribute>
+					<name>app-qos-policy_set_qos-profile</name>
+				</attribute>
+				<attribute>
+					<name>template-name</name>
+				</attribute>
+				<attribute>
+					<name>qos-policy-group-name</name>
+				</attribute>
+				<attribute>
+					<name>app-qos-policy_application_predefined-application-list</name>
+				</attribute>
+				<attribute>
+					<name>app-qos-policy_application_user-defined-application-list</name>
+				</attribute>
+                <attribute>
+					<name>app-qos-policy_url-category_predefined</name>
+				</attribute>
+                <attribute>
+					<name>app-qos-policy_url-category_user-defined</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+				<attribute>
+				<name>policyGroupType</name>
+				</attribute>
+				
+				<attribute>
+					<name>template</name>
+				</attribute>
+				<attribute>
+				<name>organization</name>
+				</attribute>
+			</attributes>
+		</item>
+
+		<item>
+			<type>RawAppQosPolicy</type>
+			<description>Raw representation of App Qos Policy
+			</description>
+			<attributes>
+			
+			   <attribute>
+					<name>uid</name>
+				</attribute>
+				<attribute>
+					<name>app-qos-policy-group_name</name>
+				</attribute>
+				<attribute>
+					<name>app-qos-policy-group_description</name>
+				</attribute>
+				<attribute>
+					<name>template-name</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+				<attribute>
+				<name>policyGroupType</name>
+				</attribute>
+			</attributes>
+		</item>
+		
+		<item>
+			<type>RawDeviceStatus</type>
+			<description>Raw representation of Device Status
+			</description>
+			<attributes>
+				<attribute>
+					<name>versanms.ApplianceStatusResult_appliances_name</name>
+				</attribute>
+				<attribute>
+					<name>versanms.ApplianceStatusResult_appliances_ping-status</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+			</attributes>
+		</item>
+		
+		<item>
+			<type>RawDirectoryPollTime</type>
+			<description>Raw Directory PollTime
+			</description>
+			<attributes>
+				<attribute>
+					<name>dirName</name>
+				</attribute>
+				<attribute>
+					<name>pollStartTime</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+			</attributes>
+		</item>
+		
+		<item>
+			<type>RawSdwanSystem</type>
+			<description>Raw Sdwan System
+			</description>
+			<attributes>
+				<attribute>
+					<name>base-url</name>
+				</attribute>
+				<attribute>
+					<name>dirName</name>
+				</attribute>
+				<attribute>
+					<name>organization</name>
+				</attribute>
+				<attribute>
+					<name>userName</name>
+				</attribute>
+				<attribute>
+					<name>password</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+			</attributes>
+		</item>
+		
+	</rawItems>
+
+	<canonicalItems>
+		<!--CanonicalVersaTemplate -->
+		<item>
+			<type>CanonicalVersaTemplate</type>
+			<attributes>
+				
+				<attribute>
+					<name>uid</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaTemplates</rawSource>
+							<expression>uid</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>templateName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaTemplates</rawSource>
+							<expression>versanms.templates_template_name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>templateType</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaTemplates</rawSource>
+							<expression>versanms.templates_template_templateType</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>isPrimary</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaTemplates</rawSource>
+							<expression>versanms.templates_template_isPrimary</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>legalEntity</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaTemplates</rawSource>
+							<expression>versanms.templates_template_organization</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>versionNo</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaTemplates</rawSource>
+							<expression>versanms.templates_template_versionNo</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaTemplates</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>dirId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaTemplates</rawSource>
+							<expression>dirId</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+			</attributes>
+		</item>
+
+		<!--CanonicalLegalEntity -->
+		<item>
+			<type>CanonicalLegalEntity</type>
+			<attributes>
+				<attribute>
+					<name>versaAccountName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaOrganization</rawSource>
+							<expression>organization_name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>cuid</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaOrganization</rawSource>
+							<expression>organization_uid</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+			<!--	<attribute>
+					<name>orgId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaOrganization</rawSource>
+							<expression>organization_description</expression>
+						</transformation>
+					</transformations>
+				</attribute>-->
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaOrganization</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+			</attributes>
+		</item>
+
+		<!--CanonicalUrlCategory -->
+		<item>
+			<type>CanonicalUrlCategory</type>
+			<attributes>
+				
+				
+				<attribute>
+					<name>uid</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawUrlCategory</rawSource>
+							<expression>uid</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				
+				<attribute>
+					<name>urlCategoryName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawUrlCategory</rawSource>
+							<expression>url-category_category-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>legalEntity</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawUrlCategory</rawSource>
+							<expression>organization</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>description</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawUrlCategory</rawSource>
+							<expression>url-category_description</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>type</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawUrlCategory</rawSource>
+							<expression>definitionType</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+               <attribute>
+					<name>templateName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawUrlCategory</rawSource>
+							<expression>template-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawUrlCategory</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+			</attributes>
+		</item>
+
+		<!--CanonicalVersaDevice -->
+
+		<!--<item> <type>CanonicalVersaDevice</type> <attributes> <attribute> <name>templateName</name> 
+			<transformations> <transformation> <rawSource>RawVersaTemplates</rawSource> 
+			<expression>versanms.templates_template_name</expression> </transformation> 
+			</transformations> </attribute> <attribute> <name>pingStatus</name> <transformations> 
+			<transformation> <rawSource>RawVersaOrganization</rawSource> <expression>organization_name</expression> 
+			</transformation> </transformations> </attribute> </attributes> </item> -->
+
+		<!--CanonicalDeviceGroup -->
+
+		<item>
+			<type>CanonicalDeviceGroup</type>
+			<attributes>
+				
+				<attribute>
+					<name>uid</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceGroup</rawSource>
+							<expression>uid</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>name</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceGroup</rawSource>
+							<expression>device-group_name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>inventoryName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceGroup</rawSource>
+							<expression>device-group_inventory-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+<!--
+				<attribute>
+					<name>policyRuleName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceGroup</rawSource>
+							<expression spel="true">''</expression>
+						</transformation>
+					</transformations>
+				</attribute> -->
+
+				<attribute>
+					<name>description</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceGroup</rawSource>
+							<expression>device-group_description</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>legalEntity</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceGroup</rawSource>
+							<expression>device-group_organization</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>email</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceGroup</rawSource>
+							<expression>device-group_e-mail</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>serialNo</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceGroup</rawSource>
+							<expression>device-group_serial-no</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceGroup</rawSource>
+							<expression>device-group_dir_id</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<!-- <attribute> <name>templateName</name> <transformations> <transformation> 
+					<rawSource>RawDeviceGrpandTempMap</rawSource> <expression spel="true">''</expression> 
+					</transformation> </transformations> </attribute> -->
+
+			</attributes>
+		</item>
+
+
+		<!--CanonicalPolicyGroup -->
+		<item>
+			<type>CanonicalPolicyGroup</type>
+			<attributes>
+				
+				
+				<attribute>
+					<name>uid</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSDWANPolicyGroup</rawSource>
+							<expression>uid</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosPolicy</rawSource>
+							<expression>uid</expression>
+						</transformation>
+
+					</transformations>
+				</attribute>
+				
+				
+				
+				<attribute>
+					<name>name</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSDWANPolicyGroup</rawSource>
+							<expression>sdwan-policy-group_name</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosPolicy</rawSource>
+							<expression>app-qos-policy-group_name</expression>
+						</transformation>
+
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>policyGroupType</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSDWANPolicyGroup</rawSource>
+							<expression>policyGroupType</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosPolicy</rawSource>
+							<expression>policyGroupType</expression>
+						</transformation>
+
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>description</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSDWANPolicyGroup</rawSource>
+							<expression>sdwan-policy-group_description</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosPolicy</rawSource>
+							<expression>app-qos-policy-group_description</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>templateName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSDWANPolicyGroup</rawSource>
+							<expression>template-name</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosPolicy</rawSource>
+							<expression>template-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSDWANPolicyGroup</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+						<transformation>
+							<rawSource>RawAppQosPolicy</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+
+			</attributes>
+		</item>
+
+
+
+		<!--CanonicalPolicyRule -->
+		<item>
+			<type>CanonicalPolicyRule</type>
+			<attributes>
+				
+				
+				<attribute>
+					<name>uid</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression>uid</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression>uid</expression>
+						</transformation>
+
+					</transformations>
+				</attribute>
+				
+				
+				
+				<attribute>
+					<name>name</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression>rule_name</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression>app-qos-policy_name</expression>
+						</transformation>
+
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>tag</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression>rule_tag</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>description</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression>rule_description</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression>app-qos-policy_description</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>action</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression>rule_set_action</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>templateName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression>template-name</expression>
+						</transformation>
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression>template-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>profileName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression>rule_set_forwarding-profile</expression>
+						</transformation>
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression>app-qos-policy_set_qos-profile</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>policyGroup</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression>policy-name</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression>qos-policy-group-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>policyGroupType</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression>policyGroupType</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression>policyGroupType</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>sourceAddress</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression spel="true">''</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>destinationAddress</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression spel="true">''</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>application</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression spel="true">#root.getField('rule_match_application_predefined-application-list')+':'+#root.getField('rule_match_application_user-defined')</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression spel="true">#root.getField('app-qos-policy_application_predefined-application-list')+':'+#root.getField('app-qos-policy_application_user-defined-application-list')</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>urlCategory</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression spel="true">#root.getField('rule_match_url-category_predefined')+':'+#root.getField('rule_match_url-category_user-defined')</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression spel="true">#root.getField('app-qos-policy_url-category_predefined')+':'+#root.getField('app-qos-policy_url-category_user-defined')</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+                
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+                
+				
+				<attribute>
+					<name>template</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression>template</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression>template</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>organization</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaRulesPerPolicy</rawSource>
+							<expression>organization</expression>
+						</transformation>
+
+						<transformation>
+							<rawSource>RawAppQosRules</rawSource>
+							<expression>organization</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+
+			</attributes>
+		</item>
+
+               
+
+		<!--CanonicalQosProfiles -->
+		<item>
+			<type>CanonicalQosProfiles</type>
+			<attributes>
+				
+				<attribute>
+					<name>uid</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaAppsQosForwardingProfile</rawSource>
+							<expression>uid</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				
+				<attribute>
+					<name>name</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaAppsQosForwardingProfile</rawSource>
+							<expression>qos-profile_name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>description</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaAppsQosForwardingProfile</rawSource>
+							<expression>qos-profile_description</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>peakPpsRate</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaAppsQosForwardingProfile</rawSource>
+							<expression>qos-profile_peak-pps-rate</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>peakKbpsRate</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaAppsQosForwardingProfile</rawSource>
+							<expression>qos-profile_peak-kbps-rate</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>peakBurstSize</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaAppsQosForwardingProfile</rawSource>
+							<expression>qos-profile_peak-burst-size</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>forwardingClass</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaAppsQosForwardingProfile</rawSource>
+							<expression>qos-profile_forwarding-class</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>lossPriority</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaAppsQosForwardingProfile</rawSource>
+							<expression>qos-profile_loss-priority</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>templateName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaAppsQosForwardingProfile</rawSource>
+							<expression>template-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaAppsQosForwardingProfile</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+			</attributes>
+		</item>
+
+		<!--CanonicalForwardProfiles -->
+
+		<item>
+			<type>CanonicalForwardProfile</type>
+			<attributes>
+				
+				
+				<attribute>
+					<name>uid</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaForwardingProfile</rawSource>
+							<expression>uid</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				
+				
+				<attribute>
+					<name>name</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaForwardingProfile</rawSource>
+							<expression>forwarding-profile_name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>description</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaForwardingProfile</rawSource>
+							<expression>forwarding-profile_description</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>connectionSelectionMethod</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaForwardingProfile</rawSource>
+							<expression>forwarding-profile_connection-selection-method</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>slaViolationAction</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaForwardingProfile</rawSource>
+							<expression>forwarding-profile_sla-violation-action</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>evaluteContinuously</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaForwardingProfile</rawSource>
+							<expression>forwarding-profile_evaluate-continuously</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>encryption</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaForwardingProfile</rawSource>
+							<expression>forwarding-profile_encryption</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>symmetricForwarding</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaForwardingProfile</rawSource>
+							<expression>forwarding-profile_symmetric-forwarding</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>templateName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaForwardingProfile</rawSource>
+							<expression>template-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>slaProfile</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaForwardingProfile</rawSource>
+							<expression>forwarding-profile_sla-profile</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaForwardingProfile</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+			</attributes>
+		</item>
+
+		<!---->
+		<item>
+			<type>CanonicalCircuitPriority</type>
+			<attributes>
+			
+			 <attribute>
+					<name>profileName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaCircuitPriority</rawSource>
+							<expression>forwarding-profile_name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+			 <attribute>
+					<name>priority</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaCircuitPriority</rawSource>
+							<expression>forwarding-profile_circuit-priorities_priority_value</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>localCircuitName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaCircuitPriority</rawSource>
+							<expression>forwarding-profile_circuit-priorities_priority_circuit-names_local</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>remoteCircuitName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaCircuitPriority</rawSource>
+							<expression>forwarding-profile_circuit-priorities_priority_circuit-names_remote</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>localCircuitType</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaCircuitPriority</rawSource>
+							<expression>forwarding-profile_circuit-priorities_priority_circuit-types_local</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>remoteCircuitType</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaCircuitPriority</rawSource>
+							<expression>forwarding-profile_circuit-priorities_priority_circuit-types_remote</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>localCircuitMedia</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaCircuitPriority</rawSource>
+							<expression>forwarding-profile_circuit-priorities_priority_circuit-media_local</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>remoteCircuitMedia</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaCircuitPriority</rawSource>
+							<expression>forwarding-profile_circuit-priorities_priority_circuit-media_remote</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaCircuitPriority</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+			</attributes>
+		</item>	
+
+
+		<!--CanonicalSlaProfile -->
+		<item>
+			<type>CanonicalSlaProfile</type>
+			<attributes>
+				
+				<attribute>
+					<name>uid</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSlaProfile</rawSource>
+							<expression>uid</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				
+				
+				<attribute>
+					<name>name</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSlaProfile</rawSource>
+							<expression>sla-profile_name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>description</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSlaProfile</rawSource>
+							<expression>sla-profile_description</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>latency</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSlaProfile</rawSource>
+							<expression>sla-profile_latency</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>lossPercentage</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSlaProfile</rawSource>
+							<expression>sla-profile_loss-percentage</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>delayVariation</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSlaProfile</rawSource>
+							<expression>sla-profile_delay-variation</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>circuitTransmitUtilzation</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSlaProfile</rawSource>
+							<expression>sla-profile_circuit-transmit-utilization</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>circuitReceiveUtilzation</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSlaProfile</rawSource>
+							<expression>sla-profile_circuit-receive-utilization</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>templateName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSlaProfile</rawSource>
+							<expression>template-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaSlaProfile</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+			</attributes>
+		</item>
+
+		<!--CanonicalVersaApplication -->
+		<item>
+			<type>CanonicalVersaApplication</type>
+			<attributes>
+				
+				<attribute>
+					<name>uid</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression>uid</expression>
+						</transformation>
+						<transformation>
+							<rawSource>RawApplication</rawSource>
+							<expression>uid</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				
+				<attribute>
+					<name>name</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression>user-defined-application_app-name</expression>
+						</transformation>
+						<transformation>
+							<rawSource>RawApplication</rawSource>
+							<expression>application_name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>description</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression>user-defined-application_description</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>family</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression>user-defined-application_family</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>subFamily</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression>user-defined-application_subfamily</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>productivity</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression>user-defined-application_productivity</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>risk</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression>user-defined-application_risk</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>tag</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression>user-defined-application_tag</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>precedence</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression>user-defined-application_precedence</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>appType</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression spel="true">'USERDEFINED'</expression>
+						</transformation>
+						<transformation>
+							<rawSource>RawApplication</rawSource>
+							<expression spel="true">'PREDEFINED'</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>appTimeOut</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression>user-defined-application_app-timeout</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>templateName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression>template-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>legalEntity</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression>organization</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+                <attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedApps</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+						
+						<transformation>
+							<rawSource>RawApplication</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>				
+			</attributes>
+		</item>
+
+		<!--CanonicalSdwanDevice -->
+		<item>
+			<type>CanonicalSdwanDevice</type>
+			<attributes>
+				<attribute>
+					<name>name</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceDetails</rawSource>
+							<expression>asset_name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>serialNumber</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceDetails</rawSource>
+							<expression>asset_serial-no</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>status</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceDetails</rawSource>
+							<expression>asset_status</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>location</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceDetails</rawSource>
+							<expression>asset_location</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>lattitude</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceDetails</rawSource>
+							<expression>asset_latitude</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>longitude</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceDetails</rawSource>
+							<expression>asset_longitude</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>altitude</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceDetails</rawSource>
+							<expression>asset_altitude</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>deviceType</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceDetails</rawSource>
+							<expression>asset_device-type</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>siteName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceDetails</rawSource>
+							<expression>asset_site-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>siteId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceDetails</rawSource>
+							<expression>asset_site-id</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>legalEntity</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceDetails</rawSource>
+							<expression>asset_organization</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceDetails</rawSource>
+							<expression>asset_dir_id</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>uid</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaDeviceDetails</rawSource>
+							<expression>uid</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+			</attributes>
+		</item>
+
+		<!--CanonicalVersaAppRule -->
+		<item>
+			<type>CanonicalVersaAppRule</type>
+			<attributes>
+				
+				<attribute>
+					<name>uid</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedAppDetails</rawSource>
+							<expression>uid</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>ruleName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedAppDetails</rawSource>
+							<expression>app-match-rules_rule-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>hostPattern</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedAppDetails</rawSource>
+							<expression>app-match-rules_host-pattern</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>sourcePrefix</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedAppDetails</rawSource>
+							<expression>app-match-rules_source-prefix</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>destinationPrefix</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedAppDetails</rawSource>
+							<expression>app-match-rules_destination-prefix</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>sourcePort</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedAppDetails</rawSource>
+							<expression>app-match-rules_source-port_value</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>destinationPort</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedAppDetails</rawSource>
+							<expression>app-match-rules_destination-port_value</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+				<attribute>
+					<name>selectApplication</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedAppDetails</rawSource>
+							<expression>app-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedAppDetails</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>templateName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawVersaUserDefinedAppDetails</rawSource>
+							<expression>template-name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+
+			</attributes>
+		</item>
+		<!--CanonicalDeviceGrpandTempMap -->
+		<item>
+			<type>CanonicalDeviceGrpandTempMap</type>
+			<attributes>
+				<attribute>
+					<name>templateName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceGrpandTempMap</rawSource>
+							<expression>devicegroup-template-mapping_template</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>deviceGroups</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceGrpandTempMap</rawSource>
+							<expression>devicegroup-template-mapping_device-group</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceGrpandTempMap</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+			</attributes>
+		</item>
+		
+		<item>
+			<type>CanonicalDeviceStatus</type>
+			<attributes>
+				<attribute>
+					<name>deviceName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceStatus</rawSource>
+							<expression>versanms.ApplianceStatusResult_appliances_name</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>deviceStatus</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceStatus</rawSource>
+							<expression>versanms.ApplianceStatusResult_appliances_ping-status</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceStatus</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+			</attributes>
+		</item>
+		
+		<item>
+		    <type>CanonicalDirectoryPollTime</type>
+		    <attributes>
+				<attribute>
+					<name>dirName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDirectoryPollTime</rawSource>
+							<expression>dirName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>pollStartTime</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDirectoryPollTime</rawSource>
+							<expression>pollStartTime</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDirectoryPollTime</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+			</attributes>
+		</item>
+		
+		
+		<item>
+		    <type>CanonicalSdwanSystem</type>
+		    <attributes>
+				<attribute>
+					<name>dirId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSdwanSystem</rawSource>
+							<expression>dirName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>organization</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSdwanSystem</rawSource>
+							<expression>organization</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>baseUrl</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSdwanSystem</rawSource>
+							<expression>base-url</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>userName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSdwanSystem</rawSource>
+							<expression>userName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>password</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSdwanSystem</rawSource>
+							<expression>password</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSdwanSystem</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+			</attributes>
+		</item>
+		
+	</canonicalItems>
+</extension>

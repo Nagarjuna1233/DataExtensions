@@ -1,0 +1,1077 @@
+<extension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.hybris.com/schema/"
+	xsi:schemaLocation="http://www.hybris.com/schema/ http://www.hybris.com/schema/datahub-metadata-schema-1.2.0.xsd"
+	name="versa-target">
+
+	<dependencies>
+		<dependency>
+			<extension>versa-canonical</extension>
+		</dependency>
+	</dependencies>
+
+	
+	<targetSystems>
+		<targetSystem>
+			<name>HybrisCore</name>
+			<type>HybrisCore</type>
+			<exportURL>${datahub.extension.exportURL}</exportURL>
+			<userName>${datahub.extension.userName}</userName>
+			<password>${datahub.extension.password}</password>
+			<exportCodes></exportCodes>
+			<targetItems>
+				
+                <item>
+					<type>TargetVersaTemplate</type>
+					<exportCode>SdwanSelectTemplate</exportCode>
+					<description>Versa Templates</description>
+					<canonicalItemSource>CanonicalVersaTemplate</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						<attribute>
+							<name>uid</name>
+							<transformationExpression>uid</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+						
+						<attribute>
+							<name>name</name>
+							<transformationExpression>templateName</transformationExpression>
+							<exportCode>name</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+						<attribute>
+							<name>templateType</name>
+							<transformationExpression>templateType</transformationExpression>
+							<exportCode>templateType</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>versionNo</name>
+							<transformationExpression>''</transformationExpression>
+							<exportCode>versionNo</exportCode>
+						</attribute>
+
+
+						<attribute>
+							<name>isPrimary</name>
+							<transformationExpression>isPrimary</transformationExpression>
+							<exportCode>isPrimary</exportCode>
+						</attribute>
+
+					    <attribute>
+							<name>legalEntity</name>
+							<transformationExpression>legalEntity</transformationExpression>
+							<exportCode>legalEntity(B2BUnit.orgNameVersa)</exportCode>
+						</attribute>
+						<attribute>
+							<name>selectDirectorId</name>
+							<transformationExpression>dirId</transformationExpression>
+							<exportCode>selectDirectorId</exportCode>
+						</attribute>
+						<attribute>
+							<name>dirId</name>
+							<transformationExpression>dirId</transformationExpression>
+							<exportCode>sdwanSystem(SdwanSystem.systemId)</exportCode>
+						</attribute>
+						<attribute>
+							<name>organizationName</name>
+							<transformationExpression>legalEntity</transformationExpression>
+							<exportCode>organizationName</exportCode>
+						</attribute>
+						
+						
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+					<!--	<attribute>
+							<name>pollTime</name>
+							<transformationExpression>resolve('CanonicalDirectoryPollTime'[, 'pool_name']).pollStartTime</transformationExpression>
+							<exportCode>datahubTimeStamp</exportCode>
+						</attribute>-->
+						<!--<attribute>
+							<name>directorName</name>
+							<transformationExpression>determineDirector(poolName)</transformationExpression>
+							<exportCode>directorName[unique=true]</exportCode>
+						</attribute>-->
+					</attributes>
+				</item>
+
+                <item>
+					<type>SlaProfile</type>
+					<exportCode>SlaProfile</exportCode>
+					<description>Sla Profile</description>
+					<canonicalItemSource>CanonicalSlaProfile</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						<attribute>
+							<name>uid</name>
+							<transformationExpression>uid</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+							<!--<mandatoryInHeader>true</mandatoryInHeader> -->
+						</attribute>
+						
+						<attribute>
+							<name>name</name>
+							<transformationExpression>name</transformationExpression>
+							<exportCode>name</exportCode>
+							<!--<mandatoryInHeader>true</mandatoryInHeader> -->
+						</attribute>
+						<attribute>
+							<name>description</name>
+							<transformationExpression>description</transformationExpression>
+							<exportCode>description</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>latency</name>
+							<transformationExpression>latency</transformationExpression>
+							<exportCode>latency</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>lossPercentage</name>
+							<transformationExpression>lossPercentage</transformationExpression>
+							<exportCode>lossPercentage</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>delayVariation</name>
+							<transformationExpression>delayVariation</transformationExpression>
+							<exportCode>delayVariation</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>circuitTransmitUtilzation</name>
+							<transformationExpression>circuitTransmitUtilzation</transformationExpression>
+							<exportCode>circuitTransmitUtilization</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>circuitReceiveUtilzation</name>
+							<transformationExpression>circuitReceiveUtilzation</transformationExpression>
+							<exportCode>circuitReceiveUtilization</exportCode>
+						</attribute>    
+						<attribute>
+							<name>templateName</name>
+							<transformationExpression>templateName+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>selectTemplate(SdwanSelectTemplate.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+						<!--<attribute>
+							<name>pollTime</name>
+							<transformationExpression>resolve('CanonicalDirectoryPollTime'[, 'pool_name']).pollStartTime</transformationExpression>
+							<exportCode>datahubTimeStamp</exportCode>
+						</attribute>-->
+						<!--<attribute>
+							<name>directorName</name>
+							<transformationExpression>determineDirector(poolName)</transformationExpression>
+							<exportCode>directorName[unique=true]</exportCode>
+						</attribute>-->
+
+					</attributes>
+				</item>
+
+
+
+
+               	<item>
+					<type>ForwardingProfile</type>
+					<exportCode>ForwardingProfile</exportCode>
+					<description>Forward Profile</description>
+					<canonicalItemSource>CanonicalForwardProfile</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						<attribute>
+							<name>uid</name>
+							<transformationExpression>uid</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+							
+						</attribute>
+						
+						
+						<attribute>
+							<name>name</name>
+							<transformationExpression>name</transformationExpression>
+							<exportCode>name</exportCode>
+							
+						</attribute>
+						<attribute>
+							<name>description</name>
+							<transformationExpression>description</transformationExpression>
+							<exportCode>description</exportCode>
+						</attribute>
+
+						
+
+						<attribute>
+							<name>connectionSelectionMethod</name>
+							<transformationExpression>connectionSelectionMethod</transformationExpression>
+							<exportCode>connectionSelectionMethod</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>slaViolationAction</name>
+							<transformationExpression>slaViolationAction</transformationExpression>
+							<exportCode>slaViolationAction</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>evaluteContinuously</name>
+							<transformationExpression>evaluteContinuously</transformationExpression>
+							<exportCode>evaluateContinuously</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>encryption</name>
+							<transformationExpression>encryption</transformationExpression>
+							<exportCode>encryption</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>symmetricForwarding</name>
+							<transformationExpression>symmetricForwarding</transformationExpression>
+							<exportCode>symmetricForwarding</exportCode>
+						</attribute>
+						
+						
+						<attribute>
+							<name>slaProfile</name>
+							<transformationExpression>slaProfile+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>slaProfile(SlaProfile.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+
+                       <attribute>
+							<name>templateName</name>
+							<transformationExpression>templateName+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>selectTemplate(SdwanSelectTemplate.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+						<!--<attribute>
+							<name>pollTime</name>
+							<transformationExpression>resolve('CanonicalDirectoryPollTime'[, 'pool_name']).pollStartTime</transformationExpression>
+							<exportCode>datahubTimeStamp</exportCode>
+						</attribute>-->
+					<!--	<attribute>
+							<name>directorName</name>
+							<transformationExpression>determineDirector(poolName)</transformationExpression>
+							<exportCode>directorName[unique=true]</exportCode>
+						</attribute>-->
+                    </attributes>
+				</item>
+
+
+               	<item>
+					<type>CircuitPriority</type>
+					<exportCode>CircuitPriority</exportCode>
+					<description>Circuit Priority</description>
+					<canonicalItemSource>CanonicalCircuitPriority</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						<attribute>
+							<name>profileName</name>
+							<transformationExpression>profileName</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>priority</name>
+							<transformationExpression>priority</transformationExpression>
+							<exportCode>priority</exportCode>
+							
+						</attribute>
+						<attribute>
+							<name>localCircuitName</name>
+							<transformationExpression>localCircuitName</transformationExpression>
+							<exportCode>localCircuitName</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>remoteCircuitName</name>
+							<transformationExpression>remoteCircuitName</transformationExpression>
+							<exportCode>remoteCircuitName</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>localCircuitType</name>
+							<transformationExpression>localCircuitType</transformationExpression>
+							<exportCode>localCircuitType</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>remoteCircuitType</name>
+							<transformationExpression>remoteCircuitType</transformationExpression>
+							<exportCode>remoteCircuitType</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>localCircuitMedia</name>
+							<transformationExpression>localCircuitMedia</transformationExpression>
+							<exportCode>localCircuitMedia</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>remoteCircuitMedia</name>
+							<transformationExpression>remoteCircuitMedia</transformationExpression>
+							<exportCode>remoteCircuitMedia</exportCode>
+						</attribute>
+						<attribute>
+							<name>forwardProfile</name>
+							<transformationExpression>profileName+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>forwardingProfile(ForwardingProfile.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+						
+					<!--	<attribute>
+							<name>pollTime</name>
+							<transformationExpression>resolve('CanonicalDirectoryPollTime'[, 'pool_name']).pollStartTime</transformationExpression>
+							<exportCode>datahubTimeStamp</exportCode>
+						</attribute>-->
+						<!--<attribute>
+							<name>directorName</name>
+							<transformationExpression>determineDirector(poolName)</transformationExpression>
+							<exportCode>directorName[unique=true]</exportCode>
+						</attribute>-->
+
+					</attributes>
+				</item>
+                <item>
+					<type>QosProfile</type>
+					<exportCode>QosProfile</exportCode>
+					<description>Qos Profile</description>
+					<canonicalItemSource>CanonicalQosProfiles</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						<attribute>
+							<name>uid</name>
+							<transformationExpression>uid</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+							
+						</attribute>
+						
+						<attribute>
+							<name>name</name>
+							<transformationExpression>name</transformationExpression>
+							<exportCode>name</exportCode>
+							
+						</attribute>
+						<attribute>
+							<name>description</name>
+							<transformationExpression>description</transformationExpression>
+							<exportCode>description</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>peakPpsRate</name>
+							<transformationExpression>peakPpsRate</transformationExpression>
+							<exportCode>peakPpsRate</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>peakKbpsRate</name>
+							<transformationExpression>peakKbpsRate</transformationExpression>
+							<exportCode>peakKbpsRate</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>peakBurstSize</name>
+							<transformationExpression>peakBurstSize</transformationExpression>
+							<exportCode>peakBurstSize</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>forwardingClass</name>
+							<transformationExpression>forwardingClass</transformationExpression>
+							<exportCode>forwardingClass</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>lossPriority</name>
+							<transformationExpression>lossPriority</transformationExpression>
+							<exportCode>lossPriority</exportCode>
+						</attribute>
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+						
+						  <attribute>
+							<name>templateName</name>
+							<transformationExpression>templateName+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>sdwanSelectTemplate(SdwanSelectTemplate.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<!--<attribute>
+							<name>pollTime</name>
+							<transformationExpression>resolve('CanonicalDirectoryPollTime'[, 'pool_name']).pollStartTime</transformationExpression>
+							<exportCode>datahubTimeStamp</exportCode>
+						</attribute>-->
+						<!--<attribute>
+							<name>directorName</name>
+							<transformationExpression>determineDirector(poolName)</transformationExpression>
+							<exportCode>directorName[unique=true]</exportCode>
+						</attribute>-->
+					</attributes>
+				</item>
+
+
+
+       
+
+
+
+                <item>
+					<type>PolicyGroup</type>
+					<exportCode>PolicyGroup</exportCode>
+					<description>Policy Group</description>
+					<canonicalItemSource>CanonicalPolicyGroup</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						<attribute>
+							<name>uid</name>
+							<transformationExpression>uid</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+						</attribute>
+						
+						
+						<attribute>
+							<name>name</name>
+							<!--<transformationExpression>determinePolicyGroupName(name)</transformationExpression>-->
+							<transformationExpression>name</transformationExpression>
+							<exportCode>name</exportCode>
+						</attribute>
+						<attribute>
+							<name>description</name>
+							<transformationExpression>description</transformationExpression>
+							<exportCode>description</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>template</name>
+							<transformationExpression>templateName+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>selectTemplate(SdwanSelectTemplate.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>policyGroup</name>
+							<transformationExpression>policyGroupType</transformationExpression>
+							<exportCode>policyGroup(PolicyGroupType.code)</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+						<!--<attribute>
+							<name>pollTime</name>
+							<transformationExpression>resolve('CanonicalDirectoryPollTime'[, 'pool_name']).pollStartTime</transformationExpression>
+							<exportCode>datahubTimeStamp</exportCode>
+						</attribute>-->
+						<!--<attribute>
+							<name>directorName</name>
+							<transformationExpression>determineDirector(poolName)</transformationExpression>
+							<exportCode>directorName[unique=true]</exportCode>
+						</attribute>-->
+
+					</attributes>
+				</item>
+  
+
+
+              <item>
+					<type>PolicyRule</type>
+					<exportCode>PolicyRule</exportCode>
+					<description>Policy Rule</description>
+					<canonicalItemSource>CanonicalPolicyRule</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						<attribute>
+							<name>uid</name>
+							<transformationExpression>uid</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>name</name>
+							<transformationExpression>name</transformationExpression>
+							<exportCode>name</exportCode>
+						</attribute>
+						<attribute>
+							<name>description</name>
+							<transformationExpression>description</transformationExpression>
+							<exportCode>description</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>tag</name>
+							<transformationExpression>tag</transformationExpression>
+							<exportCode>tag</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>action</name>
+							<transformationExpression>action</transformationExpression>
+							<exportCode>action</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>sourceAddress</name>
+							<transformationExpression>sourceAddress</transformationExpression>
+							<exportCode>sourceAddress</exportCode>
+						</attribute>
+                        <attribute>
+							<name>destinationAddress</name>
+							<transformationExpression>destinationAddress</transformationExpression>
+							<exportCode>destinationAddress</exportCode>
+						</attribute>
+
+                        <attribute>
+							<name>forwardProfile</name>
+							<transformationExpression>( policyGroupType.equals('SDWAN') and !(''.equals(profileName)) ) ? profileName+':tclavalonProductCatalog:Staged' : ''</transformationExpression>
+							<exportCode>forwardingProfile(ForwardingProfile.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<attribute>
+							<name>qosProfile</name>
+							<transformationExpression>( policyGroupType.equals('QOS') and !(''.equals(profileName)) ) ? profileName+':tclavalonProductCatalog:Staged' : ''</transformationExpression>
+							<exportCode>qosProfile(QosProfile.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						
+                        <attribute>
+							<name>policyGroupType</name>
+							<transformationExpression>policyGroupType</transformationExpression>
+							<exportCode>policyGroupType(PolicyGroupType.code)</exportCode>
+						</attribute>
+						<attribute>
+							<name>policyGroup</name>
+							<transformationExpression>policyGroup+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>policyGroup(PolicyGroup.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+					<!--	<attribute>
+							<name>pollTime</name>
+							<transformationExpression>resolve('CanonicalDirectoryPollTime'[, 'pool_name']).pollStartTime</transformationExpression>
+							<exportCode>datahubTimeStamp</exportCode>
+						</attribute>-->
+
+						<attribute>
+							<name>UrlCategory</name>
+							<collection>true</collection>
+							<transformationExpression>determineUrlCategoryForPolicyRule(urlCategory,'CanonicalUrlCategory','uid',poolName,organization,template)</transformationExpression>
+							<exportCode>urlCategories(UrlCategory.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>SelectApplication</name>
+							<collection>true</collection>
+							<transformationExpression>determineUrlCategoryForPolicyRule(application,'CanonicalVersaApplication','uid',poolName,organization,template)</transformationExpression>
+							<exportCode>selectApplications(SelectApplication.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<attribute>
+							<name>template</name>
+							<transformationExpression>templateName+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>selectTemplate(SdwanSelectTemplate.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<!--<attribute>
+							<name>directorName</name>
+							<transformationExpression>determineDirector(poolName)</transformationExpression>
+							<exportCode>directorName[unique=true]</exportCode>
+						</attribute>-->
+					</attributes>
+				</item>
+               <item>
+					<type>SelectAppRule</type>
+					<exportCode>SelectAppRule</exportCode>
+					<description>Select AppRule</description>
+					<canonicalItemSource>CanonicalVersaAppRule</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						<attribute>
+							<name>uid</name>
+							<transformationExpression>uid</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+							<!--<mandatoryInHeader>true</mandatoryInHeader> -->
+						</attribute>
+						
+						<attribute>
+							<name>ruleName</name>
+							<!--<transformationExpression>determinePolicyGroupName(ruleName)</transformationExpression>-->
+							<transformationExpression>ruleName</transformationExpression>
+							<exportCode>ruleName</exportCode>
+							<!--<mandatoryInHeader>true</mandatoryInHeader> -->
+						</attribute>
+						<attribute>
+							<name>hostPattern</name>
+							<transformationExpression>hostPattern</transformationExpression>
+							<exportCode>hostPattern</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>sourcePrefix</name>
+							<transformationExpression>sourcePrefix</transformationExpression>
+							<exportCode>sourcePrefix</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>destinationPrefix</name>
+							<transformationExpression>destinationPrefix</transformationExpression>
+							<exportCode>destinationPrefix</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>sourcePort</name>
+							<transformationExpression>sourcePort</transformationExpression>
+							<exportCode>sourcePort</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>destinationPort</name>
+							<transformationExpression>destinationPort</transformationExpression>
+							<exportCode>destinationPort</exportCode>
+						</attribute>
+						
+					    <attribute>
+							<name>application</name>
+							<!--<collection>true</collection>-->
+							<!--<transformationExpression>determineApplicationForAppRule(ruleName,hostPattern,poolName)</transformationExpression>-->
+							<transformationExpression>selectApplication+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>selectApplication(SelectApplication.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+						<!--<attribute>
+							<name>pollTime</name>
+							<transformationExpression>resolve('CanonicalDirectoryPollTime'[, 'pool_name']).pollStartTime</transformationExpression>
+							<exportCode>datahubTimeStamp</exportCode>
+						</attribute>-->
+						<!--<attribute>
+							<name>directorName</name>
+							<transformationExpression>determineDirector(poolName)</transformationExpression>
+							<exportCode>directorName[unique=true]</exportCode>
+						</attribute>-->
+
+					</attributes>
+				</item>
+				
+				
+			   <item>
+					<type>DeviceGroup</type>
+					<exportCode>DeviceGroup</exportCode>
+					<description>Device Group</description>
+					<canonicalItemSource>CanonicalDeviceGroup</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						<attribute>
+							<name>uid</name>
+							<transformationExpression>uid</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+							<!--<mandatoryInHeader>true</mandatoryInHeader> -->
+						</attribute>
+						
+						<attribute>
+							<name>name</name>
+							<transformationExpression>name</transformationExpression>
+							<exportCode>name</exportCode>
+							<!--<mandatoryInHeader>true</mandatoryInHeader> -->
+						</attribute>
+						<attribute>
+							<name>description</name>
+							<transformationExpression>description</transformationExpression>
+							<exportCode>description</exportCode>
+						</attribute>
+
+						<!--<attribute>
+							<name>legalEntity</name>
+							<transformationExpression>legalEntity</transformationExpression>
+							<exportCode>legalEntity</exportCode>
+						</attribute>-->
+
+						<attribute>
+							<name>inventoryName</name>
+							<transformationExpression>inventoryName</transformationExpression>
+							<exportCode>inventoryName</exportCode>
+						</attribute>
+						<attribute>
+							<name>email</name>
+							<transformationExpression>email</transformationExpression>
+							<exportCode>email</exportCode>
+						</attribute>
+						<attribute>
+							<name>serialNo</name>
+							<transformationExpression>serialNo</transformationExpression>
+							<exportCode>serialNo</exportCode>
+						</attribute>
+                        <attribute>
+							<name>phone</name>
+							<transformationExpression>''</transformationExpression>
+							<exportCode>phone</exportCode>
+						</attribute>
+						<attribute>
+							<name>templateName</name>
+							<transformationExpression>determineDeviceGroupTemplate(name,poolName,legalEntity)</transformationExpression>
+							<collection>true</collection>
+							<exportCode>selectTemplate(SdwanSelectTemplate.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+						<!--<attribute>
+							<name>pollTime</name>
+							<transformationExpression>resolve('CanonicalDirectoryPollTime'[, 'pool_name']).pollStartTime</transformationExpression>
+							<exportCode>datahubTimeStamp</exportCode>
+						</attribute>-->
+						<!--<attribute>
+							<name>directorName</name>
+							<transformationExpression>determineDirector(poolName)</transformationExpression>
+							<exportCode>directorName[unique=true]</exportCode>
+						</attribute>-->
+					</attributes>
+				</item>
+				
+				<item>
+					<type>SelectDevice</type>
+					<exportCode>SelectDevice</exportCode>
+					<description>Select Device</description>
+					<canonicalItemSource>CanonicalSdwanDevice</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+					
+					   <attribute>
+							<name>uid</name>
+							<transformationExpression>uid+'_'+determineSelectDeviceGroup(uid,poolName,serialNumber,'name')</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+						</attribute>
+						
+                       <attribute>
+							<name>name</name>
+							<transformationExpression>name</transformationExpression>
+							<exportCode>name</exportCode>
+							<!--<mandatoryInHeader>true</mandatoryInHeader> -->
+						</attribute>
+						<attribute>
+							<name>serialNumber</name>
+							<transformationExpression>serialNumber</transformationExpression>
+							<exportCode>serialNumber</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>status</name>
+							<transformationExpression>status</transformationExpression>
+							<exportCode>status</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>location</name>
+							<transformationExpression>location</transformationExpression>
+							<exportCode>location</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>latitude</name>
+							<transformationExpression>lattitude</transformationExpression>
+							<exportCode>latitude</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>longitude</name>
+							<transformationExpression>longitude</transformationExpression>
+							<exportCode>longitude</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>altitude</name>
+							<transformationExpression>altitude</transformationExpression>
+							<exportCode>altitude</exportCode>
+						</attribute>
+						<attribute>
+							<name>deviceType</name>
+							<transformationExpression>deviceType</transformationExpression>
+							<exportCode>deviceType</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>siteName</name>
+							<transformationExpression>siteName</transformationExpression>
+							<exportCode>siteName</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>siteId</name>
+							<transformationExpression>siteId</transformationExpression>
+							<exportCode>siteId</exportCode>
+						</attribute>
+						<attribute>
+							<name>templateName</name>
+							<transformationExpression>determineTemplateForDevice(uid,poolName,serialNumber)</transformationExpression>
+							<exportCode>selectTemplate(SdwanSelectTemplate.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<attribute>
+							<name>pingStatus</name>
+							<transformationExpression>determineDeviceStatus(name,poolName)</transformationExpression>
+							<!--<transformationExpression>name.equals(resolve('CanonicalDeviceStatus',poolName,'integrationKey='+name).deviceName) ? resolve('CanonicalDeviceStatus',poolName,'integrationKey='+name).deviceStatus : ''</transformationExpression>-->
+							<exportCode>pingStatus</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>legalEntity</name>
+							<transformationExpression>legalEntity</transformationExpression>
+							<exportCode>legalEntity(B2BUnit.orgNameVersa)</exportCode>
+						</attribute>
+						
+						
+						<attribute>
+							<name>organization</name>
+							<transformationExpression>legalEntity</transformationExpression>
+							<exportCode>organization</exportCode>
+						</attribute>
+						<attribute>
+							<name>dirId</name>
+							<transformationExpression>poolName</transformationExpression>
+							<exportCode>sdwanSystem(SdwanSystem.systemId)</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>deviceGroup</name>
+							<transformationExpression>''.equals(determineSelectDeviceGroup(uid,poolName,serialNumber,'uid')) ? '' : determineSelectDeviceGroup(uid,poolName,serialNumber,'uid')+':tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>deviceGroup(DeviceGroup.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+						<!--<attribute>
+							<name>legalEntity</name>
+							<transformationExpression>legalEntity</transformationExpression>
+							<exportCode>legalEntity(B2BUnit.uid)</exportCode>
+						</attribute>-->
+					<!--	<attribute>
+							<name>pollTime</name>
+							<transformationExpression>resolve('CanonicalDirectoryPollTime'[, 'pool_name']).pollStartTime</transformationExpression>
+							<exportCode>datahubTimeStamp</exportCode>
+						</attribute>-->
+						<!--<attribute>
+							<name>directorName</name>
+							<transformationExpression>determineDirector(poolName)</transformationExpression>
+							<exportCode>directorName[unique=true]</exportCode>
+						</attribute>-->
+					</attributes>
+				</item>
+				
+				<item>
+					<type>UrlCategory</type>
+					<exportCode>UrlCategory</exportCode>
+					<description>Url Category</description>
+					<canonicalItemSource>CanonicalUrlCategory</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						
+						<attribute>
+							<name>uid</name>
+							<transformationExpression>uid</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>categoryName</name>
+							<transformationExpression>urlCategoryName</transformationExpression>
+							<exportCode>categoryName</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>dirId</name>
+							<transformationExpression>poolName</transformationExpression>
+							<exportCode>sdwanSystem(SdwanSystem.systemId)</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>templateName</name>
+							<transformationExpression>templateName!=null ? templateName+':tclavalonProductCatalog:Staged' : ''</transformationExpression>
+							<exportCode>selectTemplate(SdwanSelectTemplate.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+
+						<!--<attribute>
+							<name>legalEntity</name>
+							<transformationExpression>legalEntity</transformationExpression>
+							<exportCode>legalEntity</exportCode>
+						</attribute>-->
+						<attribute>
+							<name>type</name>
+							<transformationExpression>type</transformationExpression>
+							<exportCode>type(DefinitionType.code)</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+						</attribute>
+					<!--	<attribute>
+							<name>pollTime</name>
+							<transformationExpression>resolve('CanonicalDirectoryPollTime'[, 'pool_name']).pollStartTime</transformationExpression>
+							<exportCode>datahubTimeStamp</exportCode>
+						</attribute>-->
+						<!--<attribute>
+							<name>directorName</name>
+							<transformationExpression>determineDirector(poolName)</transformationExpression>
+							<exportCode>directorName[unique=true]</exportCode>
+						</attribute>-->
+					</attributes>
+				</item>
+				
+				  <item>
+					<type>SelectApplication</type>
+					<exportCode>SelectApplication</exportCode>
+					<description>Select Application</description>
+					<canonicalItemSource>CanonicalVersaApplication
+					</canonicalItemSource>
+					<updatable>true</updatable>
+					<attributes>
+						<attribute>
+							<name>uid</name>
+							<transformationExpression>uid</transformationExpression>
+							<exportCode>uid[unique=true]</exportCode>
+							<!--<mandatoryInHeader>true</mandatoryInHeader> -->
+						</attribute>
+						
+						
+						<attribute>
+							<name>name</name>
+							<transformationExpression>name</transformationExpression>
+							<exportCode>name</exportCode>
+							<!--<mandatoryInHeader>true</mandatoryInHeader> -->
+						</attribute>
+						<attribute>
+							<name>description</name>
+							<transformationExpression>description</transformationExpression>
+							<exportCode>description</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>family</name>
+							<transformationExpression>family</transformationExpression>
+							<exportCode>family</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>subFamily</name>
+							<transformationExpression>subFamily</transformationExpression>
+							<exportCode>subFamily</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>productivity</name>
+							<transformationExpression>productivity</transformationExpression>
+							<exportCode>productivity</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>risk</name>
+							<transformationExpression>risk</transformationExpression>
+							<exportCode>risk</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>tag</name>
+							<transformationExpression>tag</transformationExpression>
+							<exportCode>tag</exportCode>
+						</attribute>
+						<attribute>
+							<name>precedence</name>
+							<transformationExpression>precedence</transformationExpression>
+							<exportCode>precedence</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>appType</name>
+							<transformationExpression>appType</transformationExpression>
+							<exportCode>appType(DefinitionType.code)</exportCode>
+						</attribute>
+
+						<attribute>
+							<name>appTimeOut</name>
+							<transformationExpression>appTimeOut</transformationExpression>
+							<exportCode>appTimeOut</exportCode>
+						</attribute>
+						<attribute>
+							<name>dirId</name>
+							<transformationExpression>poolName</transformationExpression>
+							<exportCode>SdwanSystem(systemId)</exportCode>
+						</attribute>
+						<attribute>
+							<name>template</name>
+							<transformationExpression>templateName!=null ?  templateName+':tclavalonProductCatalog:Staged' : ''</transformationExpression>
+							<exportCode>selectTemplate(SdwanSelectTemplate.uid,catalogVersion(Catalog(id),version))</exportCode>
+						</attribute>
+						
+						<attribute>
+							<name>legalEntity</name>
+							<transformationExpression>legalEntity</transformationExpression>
+							<exportCode>legalEntity(B2BUnit.orgNameVersa)</exportCode>
+						</attribute>
+						
+					    <attribute>
+							<name>catalogVersion</name>
+							<transformationExpression>'tclavalonProductCatalog:Staged'</transformationExpression>
+							<exportCode>catalogVersion(Catalog(id),version)[unique=true]</exportCode>
+							<mandatoryInHeader>true</mandatoryInHeader>
+					    </attribute>
+						<!--<attribute>
+							<name>pollTime</name>
+							<transformationExpression>resolve('CanonicalDirectoryPollTime'[, 'pool_name']).pollStartTime</transformationExpression>
+							<exportCode>datahubTimeStamp</exportCode>
+						</attribute>-->
+						<!--<attribute>
+							<name>directorName</name>
+							<transformationExpression>determineDirector(poolName)</transformationExpression>
+							<exportCode>directorName[unique=true]</exportCode>
+						</attribute>-->
+				</attributes>
+				</item>
+			</targetItems>
+		</targetSystem>
+	</targetSystems>
+</extension>

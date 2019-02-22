@@ -1,0 +1,993 @@
+<extension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.hybris.com/schema/"
+	xsi:schemaLocation="http://www.hybris.com/schema/ http://www.hybris.com/schema/datahub-metadata-schema-1.2.0.xsd"
+	name="anuta-raw">
+	<dependencies>
+		<dependency>
+			<extension>anuta-canonical</extension>
+		</dependency>
+	</dependencies>
+	<rawItems>
+	 <!--get All Devices-->
+	 <item>
+         <type>RawAllDevices</type>
+            <description>Raw representation of All Devices</description>
+            <attributes>
+			  <attribute><name>id</name></attribute>
+              <attribute><name>os-version</name></attribute>
+              <attribute><name>serial-number</name></attribute>
+              <attribute><name>status</name></attribute>
+              <attribute><name>device-type</name></attribute>
+              <attribute><name>service-provisioning-status</name></attribute>
+              <attribute><name>interfaces</name></attribute>
+			  <attribute><name>@_owner</name></attribute>
+			  <attribute><name>poolName</name></attribute>
+			  <attribute><name>dirId</name></attribute>
+			  <attribute><name>uniqueId</name></attribute>
+            </attributes>
+	 </item>
+	 
+	 <item>
+         <type>RawDeviceRoute</type>
+         <description>Raw representation of  Device Route</description>
+         <attributes>
+		      <attribute><name>deviceRouteUniqueId</name></attribute>
+			  <attribute><name>device-id</name></attribute>
+		      <attribute><name>options_id</name></attribute>
+              <attribute><name>options_name</name></attribute>
+              <attribute><name>options_next-hop-ip</name></attribute>
+			  <attribute><name>options_metric</name></attribute>
+			  <attribute><name>options_interface-name</name></attribute>
+			  <attribute><name>options_tag</name></attribute>
+			  <attribute><name>dest-ip-address</name></attribute>
+              <attribute><name>dest-mask</name></attribute>
+			  <attribute><name>poolName</name></attribute>
+			  <attribute><name>uniqueId</name></attribute>
+			  <attribute><name>dirId</name></attribute>
+		 </attributes>
+	</item>	 
+	
+	<!--Get All Sites-->
+	<item>
+	  <type>RawSiteServices</type>
+	  <description>Raw representation of  Site Services</description>
+      <attributes>
+              <attribute><name>uniqueId</name></attribute>	  
+			  <attribute><name>organization-name</name></attribute>
+              <attribute><name>site-name</name></attribute>
+              <attribute><name>device-ip</name></attribute>
+			  <attribute><name>zero-touch-prov</name></attribute>
+			  <attribute><name>site-type</name></attribute>
+			  <attribute><name>cpe-primary</name></attribute>
+			  <attribute><name>cpe-secondary</name></attribute>
+			  <attribute><name>poolName</name></attribute>
+			  <attribute><name>dirId</name></attribute>
+		</attributes> 
+	</item>
+	 
+	<!--Get Applications-->
+    <item>
+         <type>RawApplications</type>
+         <description>Raw representation of  Applications</description>
+         <attributes>
+	          <attribute><name>cpedeployment:class-map_Owner</name></attribute>
+              <attribute><name>cpedeployment:class-map_name</name></attribute>
+              <attribute><name>cpedeployment:class-map_access-group</name></attribute>
+              <attribute><name>cpedeployment:class-map_protocol</name></attribute>
+              <attribute><name>cpedeployment:class-map_description</name></attribute>
+              <attribute><name>cpedeployment:class-map_match-type</name></attribute>
+           <attribute><name>cpedeployment:class-map_Shared-With</name></attribute>
+		   
+		   
+		   <attribute><name>name</name></attribute>
+		   <attribute><name>app-name</name></attribute>
+		   <attribute><name>organization-name</name></attribute>
+		   <attribute><name>dirId</name></attribute>
+		   <attribute><name>description</name></attribute>
+		   <attribute><name>poolName</name></attribute>
+      </attributes>
+	</item>
+	
+	<!--get Custom Apllications-->
+	<item>
+         <type>RawCustomApplications</type>
+         <description>Raw representation of Custom Applications</description>
+         <attributes>
+	       <attribute><name>organization-name</name></attribute>
+           <attribute><name>app-name</name></attribute>
+		   <attribute><name>poolName</name></attribute>
+		    <attribute><name>uniqueId</name></attribute>
+		   <attribute><name>dirId</name></attribute>
+        </attributes>
+	</item>
+	<item>
+         <type>RawCustomApplicationRules</type>
+         <description>Raw representation of Custom Applications</description>
+         <attributes>
+	       <attribute><name>app-name</name></attribute>
+           <attribute><name>destination-condition</name></attribute>
+           <attribute><name>port-number</name></attribute>
+           <attribute><name>destination-object</name></attribute>
+           <attribute><name>source-object</name></attribute>
+           <attribute><name>protocol</name></attribute>
+           <attribute><name>source-condition</name></attribute>
+		   <attribute><name>poolName</name></attribute>
+		   <attribute><name>uniqueId</name></attribute>
+        </attributes>
+	</item>
+	
+	<!--get Qos Policies-->
+	<item>
+         <type>RawDeviceClassMap</type>
+         <description>Raw representation of Device ClassMap</description>
+        <attributes>
+		<attribute><name>uniqueId</name></attribute>
+		  <attribute><name>id</name></attribute>
+	      <attribute><name>name</name></attribute>
+		  <attribute><name>match-value</name></attribute>
+		  <attribute><name>poolName</name></attribute>
+		  <attribute><name>device-name</name></attribute>
+		  <attribute><name>app-name</name></attribute>
+	  </attributes>
+    </item>	 
+	
+	
+	<item>
+         <type>RawQosPolicy</type>
+         <description>Raw representation of Custom Applications</description>
+         <attributes>
+	      
+           <attribute><name>policyName</name></attribute>
+		   <attribute><name>poolName</name></attribute>
+		   <attribute><name>dirId</name></attribute>
+        </attributes>
+	</item>
+
+      <item>
+			<type>RawDirectoryPollTime</type>
+			<description>Raw Directory PollTime
+			</description>
+			<attributes>
+				<attribute>
+					<name>dirName</name>
+				</attribute>
+				<attribute>
+					<name>pollStartTime</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+			</attributes>
+		</item>
+		
+		<item>
+			<type>RawSdwanSystem</type>
+			<description>Raw Sdwan System
+			</description>
+			<attributes>
+				<attribute>
+					<name>dirId</name>
+				</attribute>
+				
+				<attribute>
+					<name>base-url</name>
+				</attribute>
+				<attribute>
+					<name>dirName</name>
+				</attribute>
+				<attribute>
+					<name>organization</name>
+				</attribute>
+				<attribute>
+					<name>userName</name>
+				</attribute>
+				<attribute>
+					<name>password</name>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+				</attribute>
+			</attributes>
+		</item>
+		
+		<item>
+			<type>RawProtocol</type>
+			<description>Protocol
+			</description>
+			<attributes>
+				<attribute>
+					<name>protocol</name>
+				</attribute>
+	        </attributes>
+		</item>
+		
+		
+		<item>
+			<type>RawAppCondition</type>
+			<description>App condition
+			</description>
+			<attributes>
+				<attribute>
+					<name>appCondition</name>
+				</attribute>
+	        </attributes>
+		</item>
+	</rawItems>
+	
+	
+	
+	
+	<canonicalItems>
+	  <item>
+			<type>CanonicalPrimeDevice</type>
+			<attributes>
+				
+				<attribute>
+					<name>uniqueId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAllDevices</rawSource>
+                            <expression>uniqueId</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				
+				<attribute>
+					<name>dirId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAllDevices</rawSource>
+                            <expression>dirId</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				
+				
+				<attribute>
+					<name>cuid</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAllDevices</rawSource>
+                            <expression>id</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+                <attribute>
+					<name>osVersion</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAllDevices</rawSource>
+                            <expression>os-version</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>serviceProvisioningStatus</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAllDevices</rawSource>
+                            <expression>service-provisioning-status</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+               
+                <attribute>
+					<name>interfaces</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAllDevices</rawSource>
+                            <expression>interfaces</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+                <attribute>
+					<name>organization</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAllDevices</rawSource>
+                            <expression>@_owner</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+                <attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAllDevices</rawSource>
+                            <expression>poolName</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+
+                <attribute>
+					<name>status</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAllDevices</rawSource>
+                            <expression>status</expression>
+						</transformation>
+					</transformations>	
+                </attribute>	
+
+              <attribute>
+					<name>serialNumber</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAllDevices</rawSource>
+                            <expression>serial-number</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+
+               <attribute>
+					<name>deviceType</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAllDevices</rawSource>
+                            <expression>device-type</expression>
+						</transformation>
+					</transformations>	
+                </attribute>				
+				
+		   </attributes>
+		 </item>
+		 
+		<item>
+			<type>CanonicalDeviceRoute</type>
+			<attributes>
+				
+				
+				<attribute>
+					<name>uniqueId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceRoute</rawSource>
+                            <expression>uniqueId</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				
+				<attribute>
+					<name>id</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceRoute</rawSource>
+                            <expression>options_id</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				
+				
+				<attribute>
+					<name>dirId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceRoute</rawSource>
+                            <expression>dirId</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				
+				
+				
+				<attribute>
+					<name>deviceName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceRoute</rawSource>
+                            <expression>device-id</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				
+				<attribute>
+					<name>optionName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceRoute</rawSource>
+                            <expression>options_name</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>nextHopIp</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceRoute</rawSource>
+                            <expression>options_next-hop-ip</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>metric</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceRoute</rawSource>
+                            <expression>options_metric</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>interface</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceRoute</rawSource>
+                            <expression>options_interface-name</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>tags</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceRoute</rawSource>
+                            <expression>options_tag</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>destIpAddress</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceRoute</rawSource>
+                            <expression>dest-ip-address</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>destMask</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceRoute</rawSource>
+                            <expression>dest-mask</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceRoute</rawSource>
+                            <expression>poolName</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				</attributes>
+		</item>	
+
+		<item>
+			<type>CanonicalManagedCpeServices</type>
+			<attributes>
+				
+				<attribute>
+					<name>uniqueId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSiteServices</rawSource>
+                            <expression>uniqueId</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				
+				
+				<attribute>
+					<name>siteName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSiteServices</rawSource>
+                            <expression>site-name</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>zeroTouchProve</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSiteServices</rawSource>
+                            <expression>zero-touch-prov</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>siteType</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSiteServices</rawSource>
+                            <expression>site-type</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>primaryDevice</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSiteServices</rawSource>
+                            <expression>cpe-primary</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>secondaryDevice</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSiteServices</rawSource>
+                            <expression>cpe-secondary</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>legalEntity</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSiteServices</rawSource>
+                            <expression>organization-name</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSiteServices</rawSource>
+                            <expression>poolName</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				
+				<attribute>
+					<name>dirId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSiteServices</rawSource>
+                            <expression>dirId</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+			</attributes>	
+		</item>		
+        		
+	
+
+        <item>
+			<type>CanonicalPrimeAppQosPolicy</type>
+			<attributes>
+			
+			  <attribute>
+					<name>uniqueId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceClassMap</rawSource>
+                            <expression>uniqueId</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+			  
+			
+			
+				<attribute>
+					<name>deviceId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceClassMap</rawSource>
+                            <expression>id</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>policyName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceClassMap</rawSource>
+                            <expression>name</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>applicationName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceClassMap</rawSource>
+                            <expression>match-value</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceClassMap</rawSource>
+                            <expression>poolName</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				
+				<attribute>
+					<name>deviceName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceClassMap</rawSource>
+                            <expression>device-name</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				
+				<attribute>
+					<name>appName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDeviceClassMap</rawSource>
+                            <expression>app-name</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+			</attributes>	
+	    </item>	
+
+        <item>
+			<type>CanonicalPrimeApplication</type>
+			<attributes>
+			
+			   <attribute>
+					<name>uniqueId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawCustomApplications</rawSource>
+                            <expression>uniqueId</expression>
+						</transformation>
+						
+						<transformation>
+							<rawSource>RawApplications</rawSource>
+                            <expression>app-name</expression>
+						</transformation>
+					</transformations>
+                </attribute>
+			   
+			   <attribute>
+					<name>applicationName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawApplications</rawSource>
+                            <expression>name</expression>
+						</transformation>
+						
+						<transformation>
+							<rawSource>RawCustomApplications</rawSource>
+                            <expression>app-name</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>appType</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawApplications</rawSource>
+                            <expression spel="true">'PREDEFINED'</expression>
+						</transformation>
+						<transformation>
+							<rawSource>RawCustomApplications</rawSource>
+                            <expression spel="true">'USERDEFINED'</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>description</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawApplications</rawSource>
+                            <expression>description</expression>
+						</transformation>
+						<transformation>
+							<rawSource>RawCustomApplications</rawSource>
+                            <expression spel="true">''</expression>
+						</transformation>
+					</transformations>	
+                </attribute>
+				<attribute>
+					<name>organization</name>
+					<transformations>
+						
+						  <transformation>
+							<rawSource>RawApplications</rawSource>
+                            <expression>organization-name</expression>
+						</transformation>
+						<transformation>
+							<rawSource>RawCustomApplications</rawSource>
+                            <expression>organization-name</expression>
+						</transformation>
+					</transformations>
+                </attribute>
+                <attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawCustomApplications</rawSource>
+                            <expression>poolName</expression>
+						</transformation>
+						<transformation>
+							<rawSource>RawApplications</rawSource>
+                            <expression>poolName</expression>
+						</transformation>
+					</transformations>
+                </attribute>
+
+               <attribute>
+					<name>dirId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawCustomApplications</rawSource>
+                            <expression>dirId</expression>
+						</transformation>
+						
+						<transformation>
+							<rawSource>RawApplications</rawSource>
+                            <expression>dirId</expression>
+						</transformation>
+					</transformations>
+                </attribute>
+            </attributes>
+        </item>		
+	    
+		
+		<item>
+			<type>CanonicalPrimeAppRule</type>
+			<attributes>
+			
+			   <attribute>
+					<name>uniqueId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawCustomApplicationRules</rawSource>
+                            <expression>uniqueId</expression>
+						</transformation>
+                    </transformations>
+                </attribute>
+		       <attribute>
+					<name>appName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawCustomApplicationRules</rawSource>
+                            <expression>app-name</expression>
+						</transformation>
+                    </transformations>
+                </attribute>
+                <attribute>
+					<name>sourceObject</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawCustomApplicationRules</rawSource>
+                            <expression>source-object</expression>
+						</transformation>
+                    </transformations>
+                </attribute>
+                <attribute>
+					<name>sourceCondition</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawCustomApplicationRules</rawSource>
+                            <expression>source-condition</expression>
+						</transformation>
+                    </transformations>
+                </attribute>
+                <attribute>
+					<name>destinationObject</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawCustomApplicationRules</rawSource>
+                            <expression>destination-object</expression>
+						</transformation>
+                    </transformations>
+                </attribute>
+               <attribute>
+					<name>destinationCondition</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawCustomApplicationRules</rawSource>
+                            <expression>destination-condition</expression>
+						</transformation>
+                    </transformations>
+                </attribute>
+                <attribute>
+					<name>portNumber</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawCustomApplicationRules</rawSource>
+                            <expression>port-number</expression>
+						</transformation>
+                    </transformations>
+                </attribute>
+                 <attribute>
+					<name>protocol</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawCustomApplicationRules</rawSource>
+                            <expression>protocol</expression>
+						</transformation>
+                    </transformations>
+                </attribute>
+                <attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawCustomApplicationRules</rawSource>
+                            <expression>poolName</expression>
+						</transformation>
+                    </transformations>
+                </attribute>
+  
+			</attributes>
+	   </item>	
+
+       <item>
+		    <type>CanonicalDirectoryPollTime</type>
+		    <attributes>
+				<attribute>
+					<name>dirName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDirectoryPollTime</rawSource>
+							<expression>dirName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>pollStartTime</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDirectoryPollTime</rawSource>
+							<expression>pollStartTime</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawDirectoryPollTime</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+			</attributes>
+		</item>
+		
+		
+		<item>
+		    <type>CanonicalSdwanSystem</type>
+		    <attributes>
+				<attribute>
+					<name>dirId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSdwanSystem</rawSource>
+							<expression>dirName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>id</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSdwanSystem</rawSource>
+							<expression>dirId</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>organization</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSdwanSystem</rawSource>
+							<expression>organization</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>baseUrl</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSdwanSystem</rawSource>
+							<expression>base-url</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>userName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSdwanSystem</rawSource>
+							<expression>userName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>password</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSdwanSystem</rawSource>
+							<expression>password</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawSdwanSystem</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+			</attributes>
+		</item>
+		
+	<item>
+		    <type>CanonicalQosPolicy</type>
+		    <attributes>
+				<attribute>
+					<name>policyName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawQosPolicy</rawSource>
+							<expression>policyName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				<attribute>
+					<name>poolName</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawQosPolicy</rawSource>
+							<expression>poolName</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+				<attribute>
+					<name>dirId</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawQosPolicy</rawSource>
+							<expression>dirId</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+				
+			</attributes>
+		</item>		   
+    
+	   <item>
+		    <type>CanonicalProtocol</type>
+		    <attributes>
+				<attribute>
+					<name>protocol</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawProtocol</rawSource>
+							<expression>protocol</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+	        </attributes>
+		</item>
+		
+		<item>
+		    <type>CanonicalAppCondition</type>
+		    <attributes>
+				<attribute>
+					<name>appCondition</name>
+					<transformations>
+						<transformation>
+							<rawSource>RawAppCondition</rawSource>
+							<expression>appCondition</expression>
+						</transformation>
+					</transformations>
+				</attribute>
+	        </attributes>
+		</item>
+	
+	</canonicalItems>
+</extension>
+
